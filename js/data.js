@@ -410,8 +410,8 @@ const PHRASES = [
   { id: 32, cat: "Poéticas", text: "Que a leveza das flores represente a paz que você tanto merecia. Com carinho eterno." },
 ];
 
-const WHATSAPP = "5511999999999";
-const PHONE = "(11) 99999-9999";
+const WHATSAPP = "551142126660";
+const PHONE = "(11) 42126660";
 
 function fmtPrice(n) { return "R$ " + n.toFixed(2).replace(".", ","); }
 function fmtDate(d) { if (!d) return ""; const [y,m,day] = d.split("-"); return `${day}/${m}/${y}`; }
