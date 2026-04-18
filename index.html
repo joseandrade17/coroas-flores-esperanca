@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Coroas Floresperança – Coroa de Flores 24H</title>
+ <link rel="shortcut icon" href="./imagens/Logo.png" type="image/png"/>
+<link rel="stylesheet" href="./css/style.css"/>
+</head>
+<body>
+
+<div id="header-placeholder"></div>
+
+<main>
+  <!-- Hero -->
+  <section class="hero">
+    <p class="hero__tag">Coroas Floresperança &amp; Coroa de Flores 24H</p>
+    <h1>Homenagens com Dignidade e Respeito</h1>
+    <p>Somos parte da Floresperança, empresa com experiência no mercado de flores,
+       garantindo qualidade, agilidade e respeito em cada entrega.</p>
+    <div class="hero__actions">
+      <a href="#catalogo" class="btn btn--white btn--lg">Ver Catálogo</a>
+      <a href="https://wa.me/5511999999999" target="_blank" rel="noreferrer" class="btn btn--wapp btn--lg">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Falar no WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features-bar">
+    <div class="features-bar__grid">
+      <div class="feature-item">
+        <div class="feature-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+        <div><strong>Frete Grátis</strong><span>Em toda a região</span></div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+        <div><strong>Entrega Rápida</strong><span>Serviço ágil e seguro</span></div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 3l14 9-14 9V3z"/></svg></div>
+        <div><strong>Faixa Personalizada</strong><span>Incluída gratuitamente</span></div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div><strong>Flores Naturais</strong><span>Frescas e selecionadas</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Catalog -->
+  <section class="catalog" id="catalogo">
+    <h2 class="section-title">Nossos Produtos</h2>
+    <p class="section-subtitle">Escolha a coroa perfeita para sua homenagem</p>
+
+    <div class="search-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input class="search-input" id="searchInput" type="text" placeholder="Buscar coroa..."/>
+    </div>
+
+    <div class="cat-pills" id="catPills">
+      <button class="cat-pill active" data-cat="Todos">Todos</button>
+      <button class="cat-pill" data-cat="Clássica">Clássica</button>
+      <button class="cat-pill" data-cat="Luxo">Luxo</button>
+      <button class="cat-pill" data-cat="Nobre">Nobre</button>
+    </div>
+
+    <div class="products-grid" id="productsGrid"></div>
+
+    <div class="cta-box">
+      <h3>Não encontrou o que procura?</h3>
+      <p>Entre em contato pelo WhatsApp e criaremos uma homenagem personalizada para você.</p>
+      <div class="cta-box__btns">
+        <a href="https://wa.me/5511999999999" target="_blank" rel="noreferrer" class="btn btn--wapp">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp 24h
+        </a>
+        <a href=".pedido.html" class="btn btn--outline">Fazer Pedido Online</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="footer-placeholder"></div>
+
+<script src="./js/data.js"></script>
+<script src="./js/main.js"></script>
+<script>
+  let activeCat = 'Todos';
+  let search = '';
+
+  function renderProducts() {
+    const base = getBase();
+    const filtered = PRODUCTS.filter(p => {
+      const matchCat = activeCat === 'Todos' || p.category === activeCat;
+      const q = search.toLowerCase();
+      return matchCat && (p.name.toLowerCase().includes(q) || p.category.toLowerCase().includes(q) || p.description.toLowerCase().includes(q));
+    });
+    const grid = document.getElementById('productsGrid');
+    if (!filtered.length) {
+      grid.innerHTML = `<p style="grid-column:1/-1;text-align:center;padding:3rem;color:var(--muted)">Nenhum produto encontrado.</p>`;
+      return;
+    }
+    grid.innerHTML = filtered.map(p => `
+      <a href="${base}produto.html?id=${p.id}" class="product-card">
+        <div class="product-card__img">
+          <img src="${base}${p.image}" alt="${p.name}" loading="lazy"/>
+          <div class="product-card__badges">
+            <span class="badge badge--primary">${p.badge}</span>
+            <span class="badge badge--red">-${p.discount}%</span>
+          </div>
+        </div>
+        <div class="product-card__body">
+          <div class="product-card__stars">
+            <div class="stars">${renderStars(4.5)}</div>
+            <span>(83)</span>
+          </div>
+          <div class="product-card__name">${p.name}</div>
+          <div class="product-card__desc">${p.description}</div>
+          <div class="product-card__footer">
+            <div>
+              <div class="product-card__price-old">${fmtPrice(p.originalPrice)}</div>
+              <div class="product-card__price">${fmtPrice(p.basePrice)}</div>
+            </div>
+            <div class="product-card__more">Ver <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></div>
+          </div>
+        </div>
+      </a>
+    `).join('');
+  }
+
+  document.getElementById('searchInput').addEventListener('input', e => {
+    search = e.target.value;
+    renderProducts();
+  });
+
+  document.getElementById('catPills').addEventListener('click', e => {
+    const pill = e.target.closest('.cat-pill');
+    if (!pill) return;
+    activeCat = pill.dataset.cat;
+    document.querySelectorAll('.cat-pill').forEach(p => p.classList.toggle('active', p.dataset.cat === activeCat));
+    renderProducts();
+  });
+
+  document.addEventListener('DOMContentLoaded', renderProducts);
+</script>
+</body>
+</html>

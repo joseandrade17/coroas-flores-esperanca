@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Frases para Faixa – Coroas Floresperança</title>
+  <link rel="shortcut icon" href="./imagens/Logo.png" type="image/png"/>
+  <link rel="stylesheet" href="./css/style.css"/>
+</head>
+<body>
+
+<div id="header-placeholder"></div>
+
+<main>
+  <div class="frases-page">
+    <div class="breadcrumb">
+      <a id="breadHome" href="#">Início</a>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+      <span>Frases para Faixa</span>
+    </div>
+
+    <h1 style="font-family:var(--font-serif);font-size:2rem;font-weight:800;margin-bottom:.5rem">Frases para Faixa de Homenagem</h1>
+    <p style="color:var(--muted);max-width:600px;margin-bottom:2rem;line-height:1.7">
+      Escolha uma frase para personalizar a faixa da coroa. Todas as nossas coroas acompanham faixa de homenagem
+      <strong style="color:var(--primary)">gratuitamente</strong>.
+      Clique em "Usar no pedido" para ir direto ao formulário com a frase preenchida.
+    </p>
+
+    <div class="search-wrap" style="max-width:400px;margin-left:0;margin-bottom:1.5rem">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input class="search-input" id="fraseSearch" type="text" placeholder="Buscar frases..."/>
+    </div>
+
+    <div class="cat-pills" id="fraseCatPills" style="justify-content:flex-start">
+      <button class="cat-pill active" data-cat="Todas">Todas</button>
+    </div>
+
+    <div class="frases-grid" id="frasesGrid" style="margin-top:1.5rem"></div>
+
+    <div class="cta-box" style="margin-top:3rem">
+      <h3>Quer uma frase personalizada?</h3>
+      <p>Nossa equipe pode ajudar a criar a mensagem perfeita. Entre em contato pelo WhatsApp ou faça seu pedido pelo formulário.</p>
+      <div class="cta-box__btns">
+        <a id="ctaPedido" href="#" class="btn btn--primary">Fazer Pedido com Faixa Personalizada</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div id="footer-placeholder"></div>
+
+<script src="./js/data.js"></script>
+<script src="./js/main.js"></script>
+<script>
+  const BADGE_CLASS = { "Religiosas": "badge-religiosas", "Para a Família": "badge-familia", "Amigos": "badge-amigos", "Profissional": "badge-profissional", "Poéticas": "badge-poeticas" };
+
+  let activeCat = 'Todas';
+  let searchQ = '';
+  let copied = null;
+
+  function renderPills() {
+    const pills = document.getElementById('fraseCatPills');
+    const cats = ['Todas', ...PHRASE_CATS];
+    pills.innerHTML = cats.map(c =>
+      `<button class="cat-pill${c===activeCat?' active':''}" data-cat="${c}">${c}</button>`
+    ).join('');
+    pills.addEventListener('click', e => {
+      const p = e.target.closest('.cat-pill');
+      if (!p) return;
+      activeCat = p.dataset.cat;
+      renderPills(); renderGrid();
+    });
+  }
+
+  function renderGrid() {
+    const base = getBase();
+    const filtered = PHRASES.filter(p => {
+      const matchCat = activeCat === 'Todas' || p.cat === activeCat;
+      return matchCat && p.text.toLowerCase().includes(searchQ.toLowerCase());
+    });
+    const grid = document.getElementById('frasesGrid');
+    if (!filtered.length) { grid.innerHTML = `<p style="grid-column:1/-1;text-align:center;padding:3rem;color:var(--muted)">Nenhuma frase encontrada.</p>`; return; }
+    grid.innerHTML = filtered.map(p => `
+      <div class="frase-card">
+        <div class="frase-card__top">
+          <div class="frase-card__quote"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg></div>
+          <span class="frase-card__badge ${BADGE_CLASS[p.cat]||''}">${p.cat}</span>
+        </div>
+        <p class="frase-card__text">"${p.text}"</p>
+        <div class="frase-card__actions">
+          <button class="btn btn--outline btn--sm" onclick="copyFrase(${p.id}, this)">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            Copiar frase
+          </button>
+          <a href="${base}pedido.html?faixa=${encodeURIComponent(p.text)}" class="btn btn--primary btn--sm">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Usar no pedido
+          </a>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function copyFrase(id, btn) {
+    const phrase = PHRASES.find(p => p.id === id);
+    if (!phrase) return;
+    navigator.clipboard.writeText(phrase.text).then(() => {
+      const orig = btn.innerHTML;
+      btn.innerHTML = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Copiado!';
+      btn.style.color = 'var(--primary)';
+      setTimeout(() => { btn.innerHTML = orig; btn.style.color = ''; }, 2000);
+    });
+  }
+
+  document.getElementById('fraseSearch').addEventListener('input', e => {
+    searchQ = e.target.value;
+    renderGrid();
+  });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('breadHome').href = getBase() + 'index.html';
+    document.getElementById('ctaPedido').href = getBase() + 'pedido.html';
+    renderPills();
+    renderGrid();
+  });
+</script>
+</body>
+</html>
