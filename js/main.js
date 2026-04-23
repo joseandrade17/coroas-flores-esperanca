@@ -177,6 +177,7 @@ function renderFooter() {
       <div><h4>Informações</h4><ul>
         <li><a href="${base}quem-somos.html">Quem Somos</a></li>
         <li><a href="${base}cemiterios.html">Cemitérios</a></li>
+        <li><a href="${base}politica-de-devolucao.html">Política de Devolução</a></li>
       </ul></div>
       <div><h4>Contato</h4><ul>
         <li><a href="tel:+55${WHATSAPP}">${SVG.phone} ${PHONE}</a></li>
