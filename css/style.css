@@ -303,7 +303,7 @@ transform: scale(1.08);
 .hero h1 {
   font-family: var(--font-serif);
   /* Diminuí o tamanho máximo para 2.8rem para não "gritar" na tela */
-  font-size: clamp(1.8rem, 4vw, 2.8rem); 
+  font-size: clamp(1.0rem, 4vw, 2.8rem); 
   font-weight: 800;
   line-height: 1.1;
   /* Largura aumentada para o texto não ficar estreito */
