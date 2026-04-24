@@ -53,8 +53,10 @@ ul, ol { list-style: none; }
   flex-wrap: wrap;
 }
 .gold {
-  color: #d4af37;
-  font-weight: 700;
+  background: linear-gradient(90deg,  #d4af37, #b8860b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
 }
 .topbar__links { display: flex; gap: 1rem; align-items: center; }
 .topbar__links a { display: flex; align-items: center; gap: .3rem; opacity: .9; }
