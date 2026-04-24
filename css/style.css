@@ -81,6 +81,7 @@ ul, ol { list-style: none; }
   display: flex;
   align-items: center;
   justify-content: flex-end; /* Empurra o menu para a direita */
+  position: relative;
 }
 .brand {
   position: absolute; /* permite mover livremente */
@@ -116,6 +117,7 @@ transform: scale(1.08);
   color: var(--muted); 
   text-transform: uppercase; 
   letter-spacing: .4em; }
+
 
 /* Desktop nav */
 .nav-desktop { display: flex; align-items: center; gap: 1.25rem; }
@@ -180,7 +182,7 @@ transform: scale(1.08);
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 1rem;
+   gap: 1rem;
   padding: .75rem 1.25rem;
   background: var(--primary-bg);
   border-bottom: 1px solid var(--border);
@@ -190,7 +192,7 @@ transform: scale(1.08);
 .frases-mega__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  divide: var(--border);
+  
 }
 .frases-mega__col { padding: .9rem 1.1rem; border-right: 1px solid var(--border); }
 .frases-mega__col:last-child { border-right: none; }
@@ -308,7 +310,7 @@ transform: scale(1.08);
   max-width: 1000px; 
   font-size: clamp(1.2rem, 5vw, 2.2rem); 
   font-weight: 800;
-  line-height: 1.0; /* Linhas bem juntas */
+  line-height: 1.1; /* Linhas bem juntas */
   margin: 0 auto 0.3rem;
 }
 
@@ -376,14 +378,95 @@ transform: scale(1.08);
 .btn--lg { padding: .9rem 2rem; font-size: 1rem; }
 
 /* ─── FEATURES BAR ────────────────────────────────────── */
-.features-bar { background: var(--white); border-bottom: 1px solid var(--border); padding: 1.25rem 1rem; box-shadow: var(--shadow-sm); }
-.features-bar__grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
-.feature-item { display: flex; align-items: center; gap: .75rem; }
-.feature-item__icon { background: var(--primary-bg); padding: .55rem; border-radius: var(--radius-full); color: var(--primary); flex-shrink: 0; display: flex; }
-.feature-item__icon svg { width: 18px; height: 18px; }
-.feature-item strong { font-size: .83rem; display: block; color: var(--text); }
-.feature-item span { font-size: .72rem; color: var(--muted); }
+.features-bar { 
+  background: var(--white);
+  border-bottom: 1px solid var(--border); 
+  padding: 0.15rem 1rem; 
+  box-shadow: var(--shadow-sm); 
+}
 
+.features-bar__grid {
+  max-width: 1200px; 
+  margin: 0 auto; 
+  display: grid; 
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 0.2rem; /* Reduzi o espaço entre os 4 blocos */
+}
+
+.feature-item {
+  display: flex; 
+  align-items: center; 
+  gap: 0.25rem; /* APROXIMA O ÍCONE DO TEXTO: Reduzido de .75rem para .25rem */
+}
+
+.feature-item__icon { 
+  background: var(--primary-bg);
+  padding: 0.3rem; /* DIMINUI O CÍRCULO VERDE: Reduzido de .55rem para .3rem */
+  border-radius: var(--radius-full); 
+  color: var(--primary); 
+  flex-shrink: 0; 
+  display: flex; 
+}
+
+.feature-item__icon svg { 
+  width: 23px; /* Ícone levemente menor para não forçar a altura */
+  height: 23px;
+}
+
+.feature-item strong { 
+  font-size: 0.95rem; 
+  display: block;
+  color: var(--text);
+  line-height: 1; /* COLA AS LINHAS: Valor menor que 1 "espreme" o texto */
+  margin-bottom: 0; 
+  letter-spacing: -0.02em; /* Aproxima as letras uma da outra */
+}
+
+.feature-item span { 
+  font-size: 0.88rem; 
+  color: var(--muted);
+  line-height: 1.5; /* COLA AS LINHAS */
+  display: block;
+  margin-top: -1px; /* PUXA O TEXTO PARA CIMA: Elimina qualquer folga restante */
+  
+}
+@media (max-width: 768px) {
+  /* Diminuir a barra inteira no celular */
+  .features-bar { 
+    padding: 0.3rem 0.5rem !important; 
+  }
+
+  /* Faz os itens ficarem mais compactos horizontalmente */
+  .features-bar__grid {
+    gap: 0.4rem !important;
+    display: grid;
+    /* Isso garante que fiquem 2 itens por linha no celular, sem quebrar o layout */
+    grid-template-columns: repeat(2, 1fr); 
+  }
+
+  /* Ajustar o texto para não ocupar espaço demais */
+  .feature-item strong {
+    font-size: 0.75rem !important; /* Letra um pouco menor no celular */
+    line-height: 1.1;
+    word-spacing: 1px; /* No celular, muito espaço entre palavras pode quebrar a linha */
+  }
+
+  .feature-item span {
+    font-size: 0.65rem !important;
+    line-height: 1;
+    word-spacing: 1px;
+  }
+  
+  /* Diminuir o ícone no celular para a barra não esticar */
+  .feature-item__icon {
+    padding: 0.2rem !important;
+  }
+  
+  .feature-item__icon svg {
+    width: 14px !important;
+    height: 14px !important;
+  }
+}
 /* ─── CATALOG ─────────────────────────────────────────── */
 .catalog { max-width: 1200px; margin: 0 auto; padding: 3rem 1rem; }
 .section-title { font-family: var(--font-serif); font-size: 1.8rem; font-weight: 800; color: var(--text); margin-bottom: .4rem; text-align: center; }
@@ -856,4 +939,56 @@ transform: scale(1.08);
   .hero h1 { font-size: 1.6rem; }
   .hero__actions { flex-direction: column; align-items: center; }
   .product-price__main { font-size: 1.8rem; }
+}
+.features {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}@media (max-width: 768px) {
+  .hero {
+    padding: 1rem 0.8rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(1.4rem, 6vw, 2rem);
+    line-height: 1.2;
+  }
+
+  .hero p {
+    font-size: 0.9rem;
+    max-width: 100%;
+  }
+}@media (max-width: 768px) {
+  .header__inner {
+    position: relative;
+    min-height: 60px;
+    align-items: center;
+  }
+}@media (max-width: 768px) {
+  .brand {
+    position: relative;
+    left: 0;
+    top: 0;
+    transform: none;
+  }
+
+  .header__inner {
+    height: auto;
+    min-height: 60px;
+    justify-content: space-between;
+    align-items: center;
+  }
+}@media (max-width: 768px) {
+  .brand {
+    position: relative;
+    left: 0;
+    top: 0;
+    transform: none;
+  }
 }
