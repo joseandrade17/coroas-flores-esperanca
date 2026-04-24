@@ -103,8 +103,8 @@ function renderHeader() {
       <a href="${base}/index.html" class="brand">
         <img src="${base}imagens/Logo.png"alt="Logo" width="42" height="42"/>
         <div class="brand__text">
-          <div class="brand__name">Coroas Flores Esperança</div>
-          <div class="brand__tagline">Homenagens com dignidade</div>
+          <div class="brand__name">FlorEsperança</div>
+          <div class="brand__tagline">Coroa de Flores 24h</div>
         </div>
       </a>
       <nav class="nav-desktop">
