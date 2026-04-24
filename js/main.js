@@ -160,14 +160,17 @@ function renderFooter() {
   <footer class="site-footer">
     <div class="footer__grid">
       <div>
-        <div class="footer__brand"><img src="${base}imagens/Logo.png" width="32" height="32" alt="Logo" style="filter:brightness(2)"><span>Flores Esperança</span></div>
-        <p class="footer__desc"> Atendimento 24 horas.</p>
-        <!-- CNPJ destacado em branco -->
+        <div class="footer__brand">
+          
+          <div style="display: flex; flex-direction: column;">
+            <span style="font-weight: bold; font-size: 1.1rem; color: #fff;">FlorEsperança</span>
+            <span style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #a7f3d0; margin-top: 2px;">Coroa de Flores 24h</span>
+          </div>
+        </div>
         <p style="margin-top: 12px; font-size: 0.78rem; color: #ffffff; font-weight: 500;">
           CNPJ: <strong>33.111.761/0001-70</strong>
         </p>
       </div>
-
       
       <div><h4>Produtos</h4><ul>
         <li><a href="${base}index.html">Catálogo</a></li>
