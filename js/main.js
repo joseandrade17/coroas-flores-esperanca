@@ -104,7 +104,7 @@ function renderHeader() {
         <img src="${base}imagens/Logo.png"alt="Logo" width="42" height="42"/>
         <div class="brand__text">
           <div class="brand__name">FlorEsperança</div>
-          <div class="brand__tagline">Coroa de Flores 24h</div>
+          <div class="brand__tagline">Coroa de Flores <span class="gold">24h</span></div>
         </div>
       </a>
       <nav class="nav-desktop">
