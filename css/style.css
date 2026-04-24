@@ -286,7 +286,7 @@ transform: scale(1.08);
   background: linear-gradient(135deg, var(--primary), var(--primary-dk));
   color: #fff;
   /* Padding reduzido: 2rem em cima/baixo e 1rem nas laterais */
-  padding: 2rem 1rem; 
+  padding: 1rem 1rem; 
   text-align: center;
   min-height: auto; /* Garante que não haja altura mínima forçada */
 }
