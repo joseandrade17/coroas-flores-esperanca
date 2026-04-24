@@ -176,8 +176,9 @@ transform: scale(1.08);
 .nav-dropdown:hover .frases-mega { opacity: 1; visibility: visible; }
 .frases-mega__header {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
+  gap: 1rem;
   padding: .75rem 1.25rem;
   background: var(--primary-bg);
   border-bottom: 1px solid var(--border);
