@@ -81,6 +81,10 @@
               <div class="grid-2">
                 <div class="field-group"><label for="dataVelorio">Data do Velório</label><input id="dataVelorio" type="date"/></div>
                 <div class="field-group"><label for="horarioVelorio">Horário do Velório</label><input id="horarioVelorio" type="time"/></div>
+                   <div class="field-group">
+               <label for="horarioEntrega">Horário Desejado para Entrega da Coroa</label>
+               <input id="horarioEntrega" type="time"/>
+                </div>
               </div>
             </div>
 
@@ -232,6 +236,7 @@
     const dv = document.getElementById('dataVelorio')?.value;
     const hv = document.getElementById('horarioVelorio')?.value;
     const de = document.getElementById('dataEntrega')?.value;
+    const he = document.getElementById('horarioEntrega').value; 
     const hs = document.getElementById('horarioSepultamento')?.value;
     const faixa = document.getElementById('faixaMensagem')?.value;
 
@@ -369,6 +374,7 @@
       `Telefone: ${document.getElementById('telefone').value}`,
       `Cemitério: ${document.getElementById('cemiterioInput').value}`,
       dv ? `Início do Velório: ${fmtDate(dv)}${hv?' às '+hv:''}` : '',
+      he ? `*Horário de Entrega Desejado:* ${he}` : '',
       de ? `Data do Sepultamento: ${fmtDate(de)}` : '',
       hs ? `Horário do Sepultamento: ${hs}` : '', '',
       faixa ? `*Mensagem da Faixa:* "${faixa}"` : 'Faixa: (a combinar)',
