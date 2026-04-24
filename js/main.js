@@ -181,7 +181,10 @@ function renderFooter() {
       </ul></div>
       <div><h4>Contato</h4><ul>
         <li><a href="tel:+55${WHATSAPP}">${SVG.phone} ${PHONE}</a></li>
-        <li><a href="https://wa.me/${WHATSAPP}" target="_blank">${SVG.wapp} WhatsApp 24h</a></li>
+        
+        <li> <a href="https://wa.me/${WHATSAPP}?text=Olá%20vim%20do%20site%20Coroas%20FlorEsperança%2024h%20e%20gostaria%20de%20mais%20informações" 
+        target="_blank">
+        ${SVG.wapp} WhatsApp 24h</a></li>
       </ul></div>
     </div>
     <div class="footer__bottom">© ${new Date().getFullYear()} Coroas Flores Esperança. Todos os direitos reservados.</div>
