@@ -182,19 +182,18 @@
   }
 
   function whatsappBuy() {
-    const s = SIZES.find(x => x.id === selectedSize) || SIZES[1];
-    const total = product.basePrice + s.addon;
-    const text = `Olá! Tenho interesse na *${product.name}* - Tamanho ${selectedSize} (${s.dimensions}) - ${fmtPrice(total)}. Poderia me ajudar com o pedido?`;
-    window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`, '_blank');
-  }
+  const text = `Olá vim do site Coroas FlorEsperança 24h e gostaria de mais informações`;
 
-  document.addEventListener('DOMContentLoaded', () => {
-    const base = getBase();
-    document.getElementById('breadHome').href = base + '/index.html';
-    document.getElementById('breadCatalog').href = base + '/index.html#catalogo';
-    product = getProduct();
-    renderPage();
-  });
+  window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`, '_blank');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const base = getBase();
+  document.getElementById('breadHome').href = base + 'index.html';
+  document.getElementById('breadCatalog').href = base + '/index.html#catalogo';
+  product = getProduct();
+  renderPage();
+});
 </script>
 </body>
 </html>
