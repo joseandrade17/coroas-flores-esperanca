@@ -164,7 +164,8 @@ function renderFooter() {
           
           <div style="display: flex; flex-direction: column;">
             <span style="font-weight: bold; font-size: 1.1rem; color: #fff;">FlorEsperança</span>
-            <span style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #a7f3d0; margin-top: 2px;">Coroa de Flores 24h</span>
+            <span style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #a7f3d0;
+            margin-top: 2px;">Coroa de Flores <span style="color: #d4af37; font-weight: 700;">24h</span>
           </div>
         </div>
         <p style="margin-top: 12px; font-size: 0.78rem; color: #ffffff; font-weight: 500;">
