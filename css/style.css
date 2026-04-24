@@ -52,6 +52,10 @@ ul, ol { list-style: none; }
   gap: .5rem;
   flex-wrap: wrap;
 }
+.gold {
+  color: #d4af37;
+  font-weight: 700;
+}
 .topbar__links { display: flex; gap: 1rem; align-items: center; }
 .topbar__links a { display: flex; align-items: center; gap: .3rem; opacity: .9; }
 .topbar__links a:hover { opacity: 1; text-decoration: underline; }
