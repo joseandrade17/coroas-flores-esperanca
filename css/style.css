@@ -338,14 +338,20 @@ transform: scale(1.08);
 /* No Mobile, onde tudo costuma esticar */
 @media (max-width: 768px) {
   .hero {
-    padding: 0.8rem 0.5rem;
+    padding: 0.6rem 0.5rem;
   }
+
   .hero h1 {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
+    line-height: 1.15;
+    max-width: 95%;
+    margin: 0 auto;
   }
+
   .hero p {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     margin-bottom: 0.6rem;
+    line-height: 1.4;
   }
 }
 /* ─── BUTTONS ─────────────────────────────────────────── */
