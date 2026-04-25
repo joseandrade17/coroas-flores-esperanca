@@ -81,12 +81,13 @@
               <div class="grid-2">
                 <div class="field-group"><label for="dataVelorio">Data do Velório</label><input id="dataVelorio" type="date"/></div>
                 <div class="field-group"><label for="horarioVelorio">Horário do Velório</label><input id="horarioVelorio" type="time"/></div>
-                   <div class="field-group">
+                <div class="field-group">
                <label for="horarioEntrega">Horário Desejado para Entrega da Coroa</label>
                <input id="horarioEntrega" type="time"/>
                 </div>
               </div>
             </div>
+             
 
             <!-- Sepultamento -->
             <div class="schedule-box">
@@ -167,7 +168,11 @@
               <div class="submit-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Confirmação em minutos</div>
               <div class="submit-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Atendimento 24 horas</div>
             </div>
-          </div>
+                </div>
+        </div>
+      </div>
+    </form>
+  </div>
 </main>
 
 <div id="footer-placeholder"></div>
@@ -180,12 +185,24 @@
   let fraseCat = 'Todas';
 
   // ─── Init from URL params ─────────────────────────────
+ document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('breadHome').href = getBase() + 'index.html';
+  document.getElementById('linkCemiterios').href = getBase() + 'cemiterios.html';
+
   const params = new URLSearchParams(window.location.search);
-  if (params.get('faixa')) document.getElementById('faixaMensagem').value = params.get('faixa');
+  if (params.get('faixa')) {
+    document.getElementById('faixaMensagem').value = params.get('faixa');
+  }
+
   if (params.get('cemiterio')) {
     document.getElementById('cemiterioInput').value = params.get('cemiterio');
     document.getElementById('cemClear').classList.remove('hidden');
   }
+
+  renderFormProducts();
+  renderFormSizes();
+  validateForm();
+});
 
   // ─── Render products ──────────────────────────────────
   function renderFormProducts() {
@@ -235,8 +252,8 @@
     const cem = document.getElementById('cemiterioInput').value;
     const dv = document.getElementById('dataVelorio')?.value;
     const hv = document.getElementById('horarioVelorio')?.value;
-    const de = document.getElementById('dataEntrega')?.value;
     const he = document.getElementById('horarioEntrega').value; 
+    const de = document.getElementById('dataEntrega')?.value;
     const hs = document.getElementById('horarioSepultamento')?.value;
     const faixa = document.getElementById('faixaMensagem')?.value;
 
@@ -338,7 +355,7 @@
   });
 
   // ─── Summary live updates ─────────────────────────────
-  ['cemiterioInput','dataVelorio','horarioVelorio','dataEntrega','horarioSepultamento','faixaMensagem','observacoes'].forEach(id => {
+  ['cemiterioInput','dataVelorio','horarioVelorio','horarioEntrega','dataEntrega','horarioSepultamento','faixaMensagem','observacoes'].forEach(id => {
     document.getElementById(id)?.addEventListener('input', () => { updateSummary(); validateForm(); });
   });
 
@@ -360,6 +377,7 @@
     const total = p ? p.basePrice + s.addon : 0;
     const dv = document.getElementById('dataVelorio').value;
     const hv = document.getElementById('horarioVelorio').value;
+    const he = document.getElementById('horarioEntrega').value;
     const de = document.getElementById('dataEntrega').value;
     const hs = document.getElementById('horarioSepultamento').value;
     const faixa = document.getElementById('faixaMensagem').value;
