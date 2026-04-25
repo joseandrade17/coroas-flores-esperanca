@@ -366,6 +366,72 @@ const CEMETERIES = [
     phone: "(11) 5677-1414", 
     hours: "Seg–Dom: 7h–17h",
     mapQuery: "Cemitério Parque Independência, Santo André, SP" },
+  
+  {id: 13,
+  name: "Cemitério Municipal da Saudade",
+  address: "Rua Padre Aquiles Silvestre, 80 - Centro",
+  city: "Caieiras",
+  state: "SP",
+  phone: "(11) 4441-1555",
+  hours: "Seg–Dom: 8h–17h",
+  mapQuery: "Cemitério da Saudade, Caieiras, SP"
+},
+
+{ 
+  id: 14,
+  name: "Cemitério Municipal da Paz",
+  address: "Av. Padre José Kentenich, 121 - Morro Grande",
+  city: "Caieiras",
+  state: "SP",
+  phone: "(11) 4899-2911",
+  hours: "Seg–Dom: 8h–17h",
+  mapQuery: "Cemitério da Paz, Caieiras, SP"
+},
+
+{ 
+  id: 15,
+  name: "Memorial Jardim das Cascatas I",
+  address: "Estrada Municipal Otávio Della Torre, 1676 - Jardim Alegria",
+  city: "Francisco Morato",
+  state: "SP",
+  phone: "(11) 4488-8285",
+  hours: "Seg–Dom: 8h–17h",
+  mapQuery: "Memorial Jardim das Cascatas, Francisco Morato, SP"
+},
+
+{ 
+  id: 16,
+  name: "Cemitério da Paixão",
+  address: "Av. da Saudade - Parque Vitória",
+  city: "Franco da Rocha",
+  state: "SP",
+  phone: "(11) 4800-7546",
+  hours: "Seg–Dom: 8h–17h",
+  mapQuery: "Cemitério da Paixão, Franco da Rocha, SP"
+},
+
+{ 
+  id: 17,
+  name: "Cemitério Valle das Colinas",
+  address: "R. Pref. José Benedito Hernandez, 220 - Portal das Alamedas",
+  city: "Franco da Rocha",
+  state: "SP",
+  phone: "(11) 4443-4424",
+  hours: "Seg–Dom: 8h–17h",
+  mapQuery: "Cemitério Valle das Colinas, Franco da Rocha, SP"
+},
+
+{ 
+  id: 18,
+  name: "Cemitério Dom Bosco",
+  address: "Estrada dos Pinheirinhos, 860",
+  city: "Perus (São Paulo)",
+  state: "SP",
+  phone: "(11) 3917-0481",
+  hours: "Seg–Dom: 8h–18h",
+  mapQuery: "Cemitério Dom Bosco, Perus, SP"
+},
+
 ];
 
 // ─── PHRASES ───────────────────────────────────────────────────
