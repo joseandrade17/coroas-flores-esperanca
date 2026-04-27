@@ -122,7 +122,7 @@ function renderHeader() {
         </div>
         <a href="${base}cemiterios.html" class="nav-link${loc.includes('cemiterio')?' active':''}">CEMITÉRIOS</a>
         <a href="${base}quem-somos.html" class="nav-link${loc.includes('quem-somos')?' active':''}">QUEM SOMOS</a>
-        <a href="https://wa.me/${WHATSAPP}" target="_blank" rel="noreferrer" class="nav-link nav-link--btn">${SVG.wapp} Contato 24h</a>
+        <a href="https://wa.me/${WHATSAPP}?text=Ol%C3%A1!%20Vim%20do%20site%20Coroas%20FlorEsperan%C3%A7a%2024h%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noreferrer" class="nav-link nav-link--btn">${SVG.wapp} Contato 24h</a>
       </nav>
       <button class="burger" id="burger" aria-label="Menu">
         <span></span><span></span><span></span>
