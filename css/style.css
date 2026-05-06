@@ -1025,3 +1025,58 @@ input[type="time"]:focus {
     transform: none;
   }
 }
+.region-selector {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 8px 16px;           /* aumentei um pouco o padding */
+  border-radius: 100px;
+  transition: all 0.2s ease;
+  position: relative;          /* importante para a seta */
+  max-width: fit-content;
+}
+
+.region-selector:hover {
+  border-color: #095523;
+  box-shadow: 0 4px 12px rgba(9, 85, 35, 0.1); /* sombra mais suave e com cor da marca */
+}
+
+.region-icon {
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+}
+
+/* Select */
+.region-select {
+  border: none;
+  background: transparent;
+  font-size: 1rem;           /* corrigido: era 1.rem (inválido) */
+  font-family: inherit;
+  color: #1e293b;
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  padding-right: 28px;       /* espaço para a seta */
+}
+
+/* Seta personalizada */
+.region-selector::after {
+  content: "▾";
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  color: #64748b;
+  pointer-events: none;
+  font-weight: bold;
+}
+
+/* Focus state (importante para acessibilidade) */
+.region-selector:focus-within {
+  border-color: #095523;
+  box-shadow: 0 0 0 3px rgba(9, 85, 35, 0.15);
+}
