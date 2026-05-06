@@ -89,15 +89,19 @@ function renderHeader() {
   const frasesActive = loc.includes('frases') ? ' active' : '';
 
   const html = `
-  <div class="topbar">
-    <div class="topbar__inner">
-      <span>Atendimento 24h para toda a região de São Paulo</span>
-      <div class="topbar__links">
-        <a href="tel:+55${WHATSAPP}">${SVG.phone} ${PHONE}</a>
-        <a href="https://wa.me/${WHATSAPP}" target="_blank" rel="noreferrer">${SVG.wapp} WhatsApp</a>
-      </div>
+<div class="topbar">
+  <div class="topbar__inner">
+    <span>Atendimento 24h para toda a região de São Paulo</span>
+    <div class="topbar__links">
+      <a href="tel:+551142126660">${SVG.phone} ${PHONE}</a>
+      
+      <!-- Link do WhatsApp com a frase personalizada -->
+      <a href="https://wa.me/551142126660?text=Olá!%20Tenho%20interesse%20em%20coroas.%20Poderia%20me%20ajudar%20com%20o%20pedido?" target="_blank" rel="noreferrer">
+        ${SVG.wapp} WhatsApp
+      </a>
     </div>
   </div>
+</div>
   <header class="site-header">
     <div class="header__inner">
       <a href="${base}/index.html" class="brand">
@@ -122,7 +126,7 @@ function renderHeader() {
         </div>
         <a href="${base}cemiterios.html" class="nav-link${loc.includes('cemiterio')?' active':''}">CEMITÉRIOS</a>
         <a href="${base}quem-somos.html" class="nav-link${loc.includes('quem-somos')?' active':''}">QUEM SOMOS</a>
-        <a href="https://wa.me/${WHATSAPP}?text=Ol%C3%A1!%20Vim%20do%20site%20Coroas%20FlorEsperan%C3%A7a%2024h%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noreferrer" class="nav-link nav-link--btn">${SVG.wapp} Contato 24h</a>
+        <a href="https://wa.me/${WHATSAPP}?text=Olá%20Tenho%20interesse%20em%20Coroas.%20Poderia%20me%20ajudar%20com%20o%20pedido?" target="_blank" rel="noreferrer" class="nav-link nav-link--btn">${SVG.wapp} Contato 24h</a>
       </nav>
       <button class="burger" id="burger" aria-label="Menu">
         <span></span><span></span><span></span>
@@ -135,8 +139,10 @@ function renderHeader() {
       <a href="${base}frases.html">FRASES PARA FAIXA</a>
       <a href="${base}cemiterios.html">CEMITÉRIOS</a>
       <a href="${base}quem-somos.html">QUEM SOMOS</a>
-      <a href="https://wa.me/${WHATSAPP}" target="_blank" rel="noreferrer" class="wapp-btn">${SVG.wapp} Contato 24h pelo WhatsApp</a>
-    </nav>
+      <a href="https://wa.me/${WHATSAPP}?text=Olá%20Tenho%20interesse%20em%20Coroas.%20Poderia%20me%20ajudar%20com%20o%20pedido?" target="_blank" rel="noreferrer" class="wapp-btn">
+  ${SVG.wapp} Contato 24h pelo WhatsApp
+</a>
+</nav>
   </header>`;
 
   const wrap = document.getElementById('header-placeholder');
@@ -186,7 +192,7 @@ function renderFooter() {
       <div><h4>Contato</h4><ul>
         <li><a href="tel:+55${WHATSAPP}">${SVG.phone} ${PHONE}</a></li>
         
-        <li> <a href="https://wa.me/${WHATSAPP}?text=Olá%20vim%20do%20site%20Coroas%20FlorEsperança%2024h%20e%20gostaria%20de%20mais%20informações" 
+        <li> <a href="https://wa.me/${WHATSAPP}?text=Olá%20Tenho%20interesse%20em%20Coroas.%20Poderia%20me%20ajudar%20com%20o%20pedido?"
         target="_blank">
         ${SVG.wapp} WhatsApp 24h</a></li>
       </ul></div>
