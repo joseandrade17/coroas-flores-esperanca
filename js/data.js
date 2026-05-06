@@ -258,181 +258,134 @@ const SIZES = [
 
 // ─── CEMETERIES ────────────────────────────────────────────────
 const CEMETERIES = [
-  { id: 1, 
-    name: "Cemitério da Consolação", 
-    address: "R. da Consolação, 1600", 
-    city: "São Paulo", 
-    state: "SP", 
-    phone: "(11) 3256-9081", 
-    hours: "Seg–Dom: 7h–17h", 
-    mapQuery: "Cemitério da Consolação, São Paulo, SP" },
+  // --- SÃO PAULO (CENTRO / NORTE / OESTE) ---
 
-  { id: 2,
-     name: "Cemitério do Araçá", 
-     address: "Av. Dr. Arnaldo, 671", 
-     city: "São Paulo", 
-     state: "SP", 
-     phone: "(11) 3872-0677", 
-     hours: "Seg–Dom: 7h–17h", 
-     mapQuery: "Cemitério do Araçá, São Paulo, SP" },
+  { id: 1, name: "Cemitério da Lapa", address: "R. Bergson, 347", city: "São Paulo", state: "SP", phone: "(11) 3834-4537", hours: "7h–18h", mapQuery: "Cemitério da Lapa, SP" },
 
-  { id: 3, 
-    name: "Cemitério do Morumbi", 
-    address: "R. Dep. Laércio Corte, 700", 
-    city: "São Paulo", 
-    state: "SP",
-    phone: "(11) 3742-2222", 
-    hours: "Seg–Dom: 6h–18h", 
-    mapQuery: "Cemitério do Morumbi, São Paulo, SP" },
+  { id: 2, name: "Memorial Parque Jaraguá", address: "R. N. Sra. do Líbano, 635", city: "São Paulo", state: "SP", phone: "(11) 3917-2244", hours: "8h–17h", mapQuery: "Memorial Parque Jaraguá, SP" },
 
-  { id: 4, 
-    name: "Cemitério Vila Formosa", 
-    address: "Av. Afonso de Freitas, 1400",
-    city: "São Paulo", 
-    state: "SP", 
-    phone: "(11) 6945-5299", 
-    hours: "Seg–Dom: 7h–17h",
-    mapQuery: "Cemitério Vila Formosa, São Paulo, SP" },
+  { id: 3, name: "Cemitério Dom Bosco (Perus)", address: "Estrada dos Pinheirinhos, 860", city: "São Paulo", state: "SP", phone: "(11) 3917-0030", hours: "7h–18h", mapQuery: "Cemitério Dom Bosco, Perus" },
 
-  { id: 5, 
-    name: "Cemitério Gethsemani", 
-    address: "Av. Indianápolis, 1020", 
-    city: "São Paulo", 
-    state: "SP",
-    phone: "(11) 5071-5455", 
-    hours: "Seg–Dom: 7h–18h", 
-    mapQuery: "Cemitério Gethsemani, São Paulo, SP" },
+  { id: 4, name: "Cemitério Gethsêmani Anhanguera", address: "Rod. Anhanguera, Km 23.4", city: "São Paulo", state: "SP", phone: "(11) 3911-3700", hours: "8h–18h", mapQuery: "Cemitério Gethsêmani Anhanguera, SP" },
 
-  { id: 6, 
-    name: "Cemitério Nossa Sra. Aparecida", 
-    address: "R. Nossa Sra. Aparecida, 500", 
-    city: "São Paulo", 
-    state: "SP", 
-    phone: "(11) 3333-4444",
-    hours: "Seg–Dom: 7h–17h", 
-    mapQuery: "Cemitério Nossa Senhora Aparecida, São Paulo, SP" },
+  { id: 5, name: "Cemitério do Araçá", address: "Av. Dr. Arnaldo, 666", city: "São Paulo", state: "SP", phone: "(11) 3256-7241", hours: "7h–18h", mapQuery: "Cemitério do Araçá, SP" },
 
-  { id: 7, 
-    name: "Cemitério São Paulo", 
-    address: "R. do Lavapés, 720", 
-    city: "São Paulo", 
-    state: "SP", 
-    phone: "(11) 3209-4888", 
-    hours: "Seg–Dom: 7h–17h", 
-    mapQuery: "Cemitério São Paulo, Glicério, SP" },
+  { id: 6, name: "Cemitério Vila Nova Cachoeirinha", address: "Av. João Marcelino Branco, 345", city: "São Paulo", state: "SP", phone: "(11) 3984-6014", hours: "7h–18h", mapQuery: "Cemitério Vila Nova Cachoeirinha, SP" },
 
-  { id: 8, 
-    name: "Cemitério Cristo Redentor",
-    address: "Av. Cangaíba, 400", 
-    city: "São Paulo", 
-    state: "SP",
-    phone: "(11) 2954-1122", 
-    hours: "Seg–Dom: 7h–17h",
-    mapQuery: "Cemitério Cristo Redentor, São Paulo, SP" },
+  { id: 7, name: "Cemitério Santana (Chora Menino)", address: "R. Nova dos Portugueses, 141", city: "São Paulo", state: "SP", phone: "(11) 2236-0566", hours: "7h–18h", mapQuery: "Cemitério Santana Chora Menino, SP" },
 
-  { id: 9, 
-    name: "Cemitério Quarta Parada", 
-    address: "R. Bresser, 3005", 
-    city: "São Paulo", 
-    state: "SP",
-    phone: "(11) 6693-4060", 
-    hours: "Seg–Dom: 7h–17h", 
-    mapQuery: "Cemitério Quarta Parada, São Paulo, SP" },
+  { id: 8, name: "Cemitério da Consolação", address: "R. da Consolação, 1600", city: "São Paulo", state: "SP", phone: "(11) 3256-9081", hours: "7h–17h", mapQuery: "Cemitério da Consolação, SP" },
+
+  { id: 9, name: "Cemitério Vila Maria", address: "R. Prof. Maria José Barone Fernandes, 498", city: "São Paulo", state: "SP", phone: "(11) 2631-5026", hours: "7h–18h", mapQuery: "Cemitério Vila Maria, SP" },
+
+  { id: 10, name: "Cemitério do Tremembé", address: "R. Maria Amália Lopes de Azevedo, 2930", city: "São Paulo", state: "SP", phone: "(11) 2261-2621", hours: "7h–18h", mapQuery: "Cemitério Tremembé, SP" },
+
+  // --- SÃO PAULO (ZONA SUL / LESTE) ---
+
+  { id: 11, name: "Cemitério do Morumbi", address: "R. Dep. Laércio Corte, 468", city: "São Paulo", state: "SP", phone: "(11) 3759-1000", hours: "24h", mapQuery: "Cemitério do Morumbi, SP" },
+
+  { id: 12, name: "Cemitério Gethsêmani Morumbi", address: "Praça da Ressurreição, 1", city: "São Paulo", state: "SP", phone: "(11) 3742-5322", hours: "7h–18h", mapQuery: "Cemitério Gethsêmani Morumbi, SP" },
+
+  { id: 13, name: "Cemitério de Congonhas", address: "R. Min. Álvaro de Sousa Lima, 101", city: "São Paulo", state: "SP", phone: "(11) 5031-4000", hours: "8h–18h", mapQuery: "Cemitério de Congonhas, SP" },
+
+  { id: 14, name: "Cemitério Vila Formosa", address: "Av. Flor de Vila Formosa, s/n", city: "São Paulo", state: "SP", phone: "(11) 2671-5544", hours: "7h–18h", mapQuery: "Cemitério Vila Formosa, SP" },
+
+  { id: 15, name: "Cemitério Quarta Parada", address: "Av. Salim Farah Maluf, s/n", city: "São Paulo", state: "SP", phone: "(11) 2605-2444", hours: "7h–18h", mapQuery: "Cemitério Quarta Parada, SP" },
+
+  { id: 16, name: "Cemitério da Saudade (São Miguel)", address: "Av. Pires do Rio, 2000", city: "São Paulo", state: "SP", phone: "(11) 2052-1920", hours: "7h–18h", mapQuery: "Cemitério São Miguel Paulista, SP" },
+
+  { id: 17, name: "Cemitério Parque das Flores", address: "Estrada do Campo Limpo, 2000", city: "São Paulo", state: "SP", phone: "(11) 5822-3000", hours: "8h–18h", mapQuery: "Cemitério Parque das Flores, SP" },
+
+  { id: 18, name: "Cemitério do Socorro", address: "R. Dr. Carlos de Moraes Barros, 120", city: "São Paulo", state: "SP", phone: "(11) 5522-3015", hours: "7h–18h", mapQuery: "Cemitério do Socorro, SP" },
+
+  { id: 19, name: "Cemitério de Parelheiros", address: "R. José Pedro de Borba, 20", city: "São Paulo", state: "SP", phone: "(11) 5920-8025", hours: "7h–18h", mapQuery: "Cemitério Parelheiros, SP" },
+
+  { id: 20, name: "Cemitério São Luís", address: "R. Antônio de Sena, 82", city: "São Paulo", state: "SP", phone: "(11) 5511-9655", hours: "7h–18h", mapQuery: "Cemitério São Luís, SP" },
+
+  // --- VILA ALPINA ---
+  { id: 21, name: "Cemitério de Vila Alpina", address: "Av. Francisco Falconi, 437", city: "São Paulo", state: "SP", phone: "(11) 2273-2173", hours: "7h–18h", mapQuery: "Cemitério Vila Alpina, SP" },
+
+  { id: 22, name: "Crematório Vila Alpina", address: "Av. Francisco Falconi, 437", city: "São Paulo", state: "SP", phone: "(11) 2273-2003", hours: "24h", mapQuery: "Crematório Vila Alpina, SP" },
+
+  { id: 23, name: "Cemitério de Vila Zelina", address: "Av. Zelina, 800", city: "São Paulo", state: "SP", phone: "(11) 2273-2553", hours: "7h–18h", mapQuery: "Cemitério Vila Zelina, SP" },
+
+  // --- OSASCO / CARAPICUÍBA / BARUERI ---
+  { id: 24, name: "Cemitério Bela Vista", address: "R. Diogo Benitez, 400", city: "Osasco", state: "SP", phone: "(11) 3681-8178", hours: "8h–17h", mapQuery: "Cemitério Bela Vista, Osasco" },
+
+  { id: 25, name: "Cemitério Santo Antônio", address: "R. Antônio Russo, 175", city: "Osasco", state: "SP", phone: "(11) 3683-5182", hours: "8h–17h", mapQuery: "Cemitério Santo Antônio, Osasco" },
+
+  { id: 26, name: "Cemitério Parque dos Girassóis", address: "Al. Parque dos Girassóis, s/n", city: "Osasco", state: "SP", phone: "(11) 3658-0051", hours: "8h–18h", mapQuery: "Cemitério Parque dos Girassóis, Osasco" },
+
+  { id: 27, name: "Cemitério Ariston", address: "R. Dumont, 1", city: "Carapicuíba", state: "SP", phone: "(11) 4184-3833", hours: "8h–17h", mapQuery: "Cemitério Municipal Carapicuíba" },
+
+  { id: 28, name: "Cemitério Municipal de Barueri", address: "Praça da Saudade, s/n", city: "Barueri", state: "SP", phone: "(11) 4198-3009", hours: "8h–17h", mapQuery: "Cemitério Municipal Barueri" },
+
+  // --- CAIEIRAS / FRANCO / MORATO / CAJAMAR ---
+
+  { id: 29, name: "Cemitério da Saudade", address: "R. Padre Aquiles Silvestre, 80", city: "Caieiras", state: "SP", phone: "(11) 4442-2313", hours: "7h–17h", mapQuery: "Cemitério da Saudade, Caieiras" },
+
+  { id: 30, name: "Cemitério da Paz (Morro Grande)", address: "Av. Padre José Kentenich, 121", city: "Caieiras", state: "SP", phone: "(11) 4445-5660", hours: "7h–17h", mapQuery: "Cemitério da Paz, Caieiras" },
+
+  { id: 31, name: "Cemitério da Paixão", address: "Av. da Saudade, s/n", city: "Franco da Rocha", state: "SP", phone: "(11) 4800-7533", hours: "7h–17h", mapQuery: "Cemitério da Paixão, Franco da Rocha" },
+
+  { id: 32, name: "Cemitério Valle das Colinas", address: "R. Pref. José Hernandez, 220", city: "Franco da Rocha", state: "SP", phone: "(11) 4443-4424", hours: "8h–17h", mapQuery: "Cemitério Valle das Colinas" },
+
+  { id: 33, name: "Memorial Jardim das Cascatas", address: "Estr. Otávio Della Torre, 1676", city: "Francisco Morato", state: "SP", phone: "(11) 4488-8285", hours: "8h–17h", mapQuery: "Memorial Jardim das Cascatas" },
+
+  { id: 34, name: "Cemitério Municipal de Cajamar", address: "R. Lázaro Dalcin, s/n", city: "Cajamar", state: "SP", phone: "(11) 4446-0153", hours: "8h–17h", mapQuery: "Cemitério Municipal Cajamar" },
+
+  // --- MAIRIPORÃ ---
+
+  { id: 35, name: "Cemitério Municipal de Mairiporã", address: "Av. Tabelião Passarela, s/n", city: "Mairiporã", state: "SP", phone: "(11) 4419-3221", hours: "8h–17h", mapQuery: "Cemitério Municipal Mairiporã" },
+
+  { id: 36, name: "Memorial Parque da Cantareira", address: "Av. Siqueira Bueno, 30", city: "Mairiporã", state: "SP", phone: "(11) 4419-2000", hours: "24h", mapQuery: "Memorial Parque da Cantareira" },
+
+  // --- INTERIOR (PARNAÍBA / COTIA / JUNDIAÍ / ETC) ---
+
+  { id: 37, name: "Cemitério São Miguel Arcanjo", address: "R. São Miguel Arcanjo, 105", city: "Santana de Parnaíba", state: "SP", phone: "(11) 4154-1317", hours: "8h–17h", mapQuery: "Cemitério Municipal Santana de Parnaíba" },
+
+  { id: 38, name: "Cemitério Municipal de Pirapora", address: "R. José Bonifácio, s/n", city: "Pirapora do Bom Jesus", state: "SP", phone: "(11) 4131-1555", hours: "8h–17h", mapQuery: "Cemitério Municipal Pirapora" },
+
+  { id: 39, name: "Cemitério Central de Cotia", address: "R. José Augusto Pedroso, s/n", city: "Cotia", state: "SP", phone: "(11) 4616-1601", hours: "8h–17h", mapQuery: "Cemitério Central Cotia" },
+
+  { id: 40, name: "Cemitério Jardim das Flores", address: "Rod. Raposo Tavares, km 30", city: "Cotia", state: "SP", phone: "(11) 4616-0168", hours: "8h–18h", mapQuery: "Cemitério Jardim das Flores, Cotia" },
+
+  { id: 41, name: "Cemitério N. Sra. do Montenegro", address: "Av. Dr. Nelson Vilaça, s/n", city: "Jundiaí", state: "SP", phone: "(11) 4581-8171", hours: "7h–18h", mapQuery: "Cemitério Montenegro, Jundiaí" },
+
+  { id: 42, name: "Cemitério N. Sra. do Desterro", address: "Av. Henrique Andrés, 360", city: "Jundiaí", state: "SP", phone: "(11) 4521-6092", hours: "7h–18h", mapQuery: "Cemitério Desterro, Jundiaí" },
+
+  { id: 43, name: "Cemitério Parque dos Ipês", address: "Av. Osmundo Pellegrini, 2265", city: "Jundiaí", state: "SP", phone: "(11) 4582-4111", hours: "8h–18h", mapQuery: "Cemitério Parque dos Ipês" },
+
+  { id: 44, name: "Cemitério Municipal de Mairinque", address: "R. Saudade, s/n", city: "Mairinque", state: "SP", phone: "(11) 4718-2067", hours: "8h–17h", mapQuery: "Cemitério Municipal Mairinque" },
+
+  { id: 45, name: "Cemitério da Paz", address: "R. 22 de Abril, 1", city: "São Roque", state: "SP", phone: "(11) 4712-4083", hours: "8h–17h", mapQuery: "Cemitério da Paz, São Roque" },
+
+  { id: 46, name: "Horto da Paz", address: "R. Horto da Paz, 191", city: "Itapecerica da Serra", state: "SP", phone: "(11) 4666-5067", hours: "24h", mapQuery: "Cemitério Horto da Paz" },
+
+  { id: 47, name: "Jardim da Ressurreição", address: "Av. Pref. Luiz Latorre, s/n", city: "Itatiba", state: "SP", phone: "(11) 4534-1234", hours: "8h–18h", mapQuery: "Cemitério Jardim da Ressurreição Itatiba" },
 
 
-  { id: 10, 
-    name: "Cemitério Jardim da Colina", 
-    address: "Av. Moraes Barros, 1800", 
-    city: "Campinas", 
-    state: "SP", 
-    phone: "(19) 3773-3773", 
-    hours: "Seg–Dom: 7h–18h", 
-    mapQuery: "Cemitério Jardim da Colina, Campinas, SP" },
+  // --- ABC PAULISTA ---
+  { id: 48, name: "Cemitério Vila Pires", address: "R. Carijós, 45", city: "Santo André", state: "SP", phone: "(11) 4452-2521", hours: "8h–17h", mapQuery: "Cemitério Vila Pires, Santo André" },
 
-  { id: 11, 
-    name: "Cemitério Parque das Flores", 
-    address: "Estrada do Campo Limpo, 2000", 
-    city: "São Paulo", 
-    state: "SP", 
-    phone: "(11) 5822-3000", 
-    hours: "Seg–Dom: 8h–18h", 
-    mapQuery: "Cemitério Parque das Flores, São Paulo, SP" },
+  { id: 49, name: "Cemitério N. Sra. do Carmo (Curuçá)", address: "R. Curuçá, s/n", city: "Santo André", state: "SP", phone: "(11) 4479-0604", hours: "8h–17h", mapQuery: "Cemitério do Curuçá, Santo André" },
 
-  { id: 12, 
-    name: "Cemitério Parque Independência", 
-    address: "Av. João Dias, 2080", 
-    city: "São Paulo", 
-    state: "SP", 
-    phone: "(11) 5677-1414", 
-    hours: "Seg–Dom: 7h–17h",
-    mapQuery: "Cemitério Parque Independência, Santo André, SP" },
+  { id: 50, name: "Cemitério Sagrado Coração de Jesus", address: "Praça Camilo Peduti, s/n", city: "Santo André", state: "SP", phone: "(11) 4461-1555", hours: "8h–17h", mapQuery: "Cemitério Camilópolis, Santo André" },
+
+  { id: 51, name: "Cemitério Phoenix", address: "Av. Queirós Filho, 1750", city: "Santo André", state: "SP", phone: "(11) 4451-2400", hours: "24h", mapQuery: "Cemitério Phoenix, Santo André" },
+
+  { id: 52, name: "Cemitério Vila Euclides", address: "R. Santa Filomena, 320", city: "São Bernardo do Campo", state: "SP", phone: "(11) 4125-6344", hours: "8h–17h", mapQuery: "Cemitério Vila Euclides, SBC" },
+
+  { id: 53, name: "Cemitério dos Casa (Saudade)", address: "Estrada dos Alvarengas, 100", city: "São Bernardo do Campo", state: "SP", phone: "(11) 4357-1901", hours: "8h–17h", mapQuery: "Cemitério dos Casa, SBC" },
+
+  { id: 54, name: "Cemitério Paulicéia", address: "R. Júlio de Mesquita, 107", city: "São Bernardo do Campo", state: "SP", phone: "(11) 4173-1025", hours: "8h–17h", mapQuery: "Cemitério Paulicéia, SBC" },
+
+  { id: 55, name: "Cemitério Jardim da Colina", address: "R. Jardim da Colina, 100", city: "São Bernardo do Campo", state: "SP", phone: "(11) 4122-0000", hours: "24h", mapQuery: "Cemitério Jardim da Colina" },
+
+  { id: 56, name: "Cemitério da Saudade", address: "R. Eng. Armando de Arruda Pereira, 430", city: "São Caetano do Sul", state: "SP", phone: "(11) 4232-1566", hours: "8h–17h", mapQuery: "Cemitério da Saudade, São Caetano" }
   
-  {id: 13,
-  name: "Cemitério Municipal da Saudade",
-  address: "Rua Padre Aquiles Silvestre, 80 - Centro",
-  city: "Caieiras",
-  state: "SP",
-  phone: "(11) 4441-1555",
-  hours: "Seg–Dom: 8h–17h",
-  mapQuery: "Cemitério da Saudade, Caieiras, SP"
-},
-
-{ 
-  id: 14,
-  name: "Cemitério Municipal da Paz",
-  address: "Av. Padre José Kentenich, 121 - Morro Grande",
-  city: "Caieiras",
-  state: "SP",
-  phone: "(11) 4899-2911",
-  hours: "Seg–Dom: 8h–17h",
-  mapQuery: "Cemitério da Paz, Caieiras, SP"
-},
-
-{ 
-  id: 15,
-  name: "Memorial Jardim das Cascatas I",
-  address: "Estrada Municipal Otávio Della Torre, 1676 - Jardim Alegria",
-  city: "Francisco Morato",
-  state: "SP",
-  phone: "(11) 4488-8285",
-  hours: "Seg–Dom: 8h–17h",
-  mapQuery: "Memorial Jardim das Cascatas, Francisco Morato, SP"
-},
-
-{ 
-  id: 16,
-  name: "Cemitério da Paixão",
-  address: "Av. da Saudade - Parque Vitória",
-  city: "Franco da Rocha",
-  state: "SP",
-  phone: "(11) 4800-7546",
-  hours: "Seg–Dom: 8h–17h",
-  mapQuery: "Cemitério da Paixão, Franco da Rocha, SP"
-},
-
-{ 
-  id: 17,
-  name: "Cemitério Valle das Colinas",
-  address: "R. Pref. José Benedito Hernandez, 220 - Portal das Alamedas",
-  city: "Franco da Rocha",
-  state: "SP",
-  phone: "(11) 4443-4424",
-  hours: "Seg–Dom: 8h–17h",
-  mapQuery: "Cemitério Valle das Colinas, Franco da Rocha, SP"
-},
-
-{ 
-  id: 18,
-  name: "Cemitério Dom Bosco",
-  address: "Estrada dos Pinheirinhos, 860",
-  city: "Perus (São Paulo)",
-  state: "SP",
-  phone: "(11) 3917-0481",
-  hours: "Seg–Dom: 8h–18h",
-  mapQuery: "Cemitério Dom Bosco, Perus, SP"
-},
-
 ];
+
 
 // ─── PHRASES ───────────────────────────────────────────────────
 const PHRASE_CATS = ["Religiosas", "Para a Família", "Amigos", "Profissional", "Poéticas"];
