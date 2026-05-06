@@ -1079,4 +1079,45 @@ input[type="time"]:focus {
 .region-selector:focus-within {
   border-color: #095523;
   box-shadow: 0 0 0 3px rgba(9, 85, 35, 0.15);
+}/* ==================== RESPONSIVIDADE - CELULAR ==================== */
+@media (max-width: 768px) {
+  .filters-row {
+    flex-direction: column;     /* Empilha verticalmente */
+    align-items: stretch;       /* ocupa toda largura */
+    gap: 12px;
+  }
+
+  .region-selector {
+    min-width: auto;
+    width: 100%;                /* ocupa toda largura no celular */
+    justify-content: space-between;
+    padding: 12px 16px;
+  }
+
+  .region-select {
+    font-size: 1rem;
+    min-width: auto;
+    flex: 1;
+  }
+
+  .search-wrap {
+    min-width: auto;
+    width: 100%;
+  }
+
+  .search-input {
+    padding: 14px 16px 14px 48px;   /* um pouco mais confortável no toque */
+    font-size: 1rem;
+  }
+}
+
+/* Celulares muito pequenos */
+@media (max-width: 480px) {
+  .region-selector {
+    padding: 11px 14px;
+  }
+  
+  .region-selector::after {
+    right: 14px;
+  }
 }
