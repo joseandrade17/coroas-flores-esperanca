@@ -72,6 +72,11 @@
               </div>
             </div>
 
+            <div class="field-group">
+            <label for="falecido">Nome do Falecido <span style="color:var(--red)">*</span></label>
+            <input id="falecido" type="text" placeholder="Ex: João da Silva" required/>
+            </div>
+
             <!-- Velório -->
             <div class="schedule-box">
               <div class="schedule-box__title">
@@ -102,6 +107,7 @@
             </div>
           </div>
 
+          
           <!-- Step 4: Ribbon -->
           <div class="form-card">
             <div class="step-header"><div class="step-num">4</div><div class="step-title">Faixa de Homenagem</div></div>
@@ -127,8 +133,29 @@
               <textarea id="observacoes" placeholder="Alguma informação adicional para nos ajudar com o pedido..."></textarea>
             </div>
           </div>
-        </div>
+        
+<!-- Step 5: Pagamento -->
+<div class="form-card">
+  <div class="step-header">
+    <div class="step-num">5</div>
+    <div class="step-title">Forma de Pagamento</div>
+  </div>
 
+  <div class="field-group">
+    <label for="formaPagamento">
+      Escolha a forma de pagamento
+      <span style="color:var(--red)">*</span>
+    </label>
+
+    <select id="formaPagamento" required>
+      <option value="">Selecione</option>
+      <option value="PIX">PIX</option>
+      <option value="Cartão de Débito">Cartão de Débito</option>
+      <option value="Cartão de Crédito">Cartão de Crédito</option>
+    </select>
+  </div>
+</div>
+ 
         <!-- Summary -->
         <div>
           <div class="order-summary">
@@ -256,6 +283,7 @@
     const de = document.getElementById('dataEntrega')?.value;
     const hs = document.getElementById('horarioSepultamento')?.value;
     const faixa = document.getElementById('faixaMensagem')?.value;
+    const pagamento = document.getElementById('formaPagamento')?.value;
 
     if (!p) {
       document.getElementById('summaryContent').innerHTML = `<p style="color:var(--muted);font-size:.85rem;text-align:center;padding:1rem 0">Selecione uma coroa para ver o resumo.</p>`;
@@ -269,6 +297,17 @@
     if (cem) html += `<div class="summary-info"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>${cem}</span></div>`;
     if (dv||hv) html += `<div class="summary-info"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Velório: ${dv?fmtDate(dv):''}${hv?' às '+hv:''}</span></div>`;
     if (de||hs) html += `<div class="summary-info"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Sepultamento: ${de?fmtDate(de):''}${hs?' às '+hs:''}</span></div>`;
+    if (pagamento) {
+  html += `
+    <div class="summary-info">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="2" y="5" width="20" height="14" rx="2"/>
+        <line x1="2" y1="10" x2="22" y2="10"/>
+      </svg>
+      <span>Pagamento: ${pagamento}</span>
+    </div>
+  `;
+}
     html += `<hr class="summary-divider"/>
       <div class="summary-row"><span>Coroa (${s.id})</span><span>${fmtPrice(p.basePrice)}</span></div>`;
     if (s.addon>0) html += `<div class="summary-row"><span>Acréscimo tamanho</span><span>+ ${fmtPrice(s.addon)}</span></div>`;
@@ -355,19 +394,21 @@
   });
 
   // ─── Summary live updates ─────────────────────────────
-  ['cemiterioInput','dataVelorio','horarioVelorio','horarioEntrega','dataEntrega','horarioSepultamento','faixaMensagem','observacoes'].forEach(id => {
+  ['cemiterioInput','formaPagamento','dataVelorio','horarioVelorio','horarioEntrega','dataEntrega','horarioSepultamento','faixaMensagem','observacoes'].forEach(id => {
     document.getElementById(id)?.addEventListener('input', () => { updateSummary(); validateForm(); });
   });
 
   // ─── Validation ───────────────────────────────────────
   function validateForm() {
-    const ok = selectedProduct && document.getElementById('nome').value.trim() && document.getElementById('telefone').value.trim() && document.getElementById('cemiterioInput').value.trim() && document.getElementById('dataEntrega').value;
+    const ok = selectedProduct && document.getElementById('nome').value.trim() && document.getElementById('telefone').value.trim() && document.getElementById('cemiterioInput').value.trim() && document.getElementById('dataEntrega').value;document.getElementById('formaPagamento').value;
     document.getElementById('submitBtn').disabled = !ok;
     document.getElementById('submitNote').textContent = ok ? '' : 'Preencha os campos obrigatórios (*) para continuar.';
   }
 
   document.getElementById('nome').addEventListener('input', validateForm);
-  document.getElementById('telefone').addEventListener('input', validateForm);
+document.getElementById('falecido').addEventListener('input', validateForm);
+document.getElementById('telefone').addEventListener('input', validateForm);
+document.getElementById('formaPagamento').addEventListener('change', validateForm);
 
   // ─── Submit ───────────────────────────────────────────
   document.getElementById('orderForm').addEventListener('submit', e => {
@@ -389,7 +430,9 @@
       `*Preço:* ${fmtPrice(total)}`, '',
       '*Dados do Pedido:*',
       `Nome: ${document.getElementById('nome').value}`,
+      `Falecido: ${document.getElementById('falecido').value}`,
       `Telefone: ${document.getElementById('telefone').value}`,
+      `Forma de Pagamento: ${document.getElementById('formaPagamento').value}`,
       `Cemitério: ${document.getElementById('cemiterioInput').value}`,
       dv ? `Início do Velório: ${fmtDate(dv)}${hv?' às '+hv:''}` : '',
       he ? `*Horário de Entrega Desejado:* ${he}` : '',
