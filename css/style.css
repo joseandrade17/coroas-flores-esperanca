@@ -760,9 +760,9 @@ input[type="time"]:focus {
   display: flex;
   align-items: center;
   gap: .4rem;
-  font-size: .98rem;
+  font-size: 1.10rem;
   font-weight: 600;
-  color: var(--primary);
+  color: #c9a635;
   background: none;
   border: none;
   cursor: pointer;
