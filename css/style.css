@@ -760,7 +760,7 @@ input[type="time"]:focus {
   display: flex;
   align-items: center;
   gap: .4rem;
-  font-size: .78rem;
+  font-size: .98rem;
   font-weight: 600;
   color: var(--primary);
   background: none;
@@ -799,7 +799,7 @@ input[type="time"]:focus {
   width: 100%;
   text-align: left;
   padding: .6rem 1rem;
-  font-size: .75rem;
+  font-size: .95rem;
   color: var(--text);
   background: none;
   border: none;
