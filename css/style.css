@@ -1370,3 +1370,43 @@ input[type="time"]:focus {
     right: 14px;
   }
 }
+/* =========================
+   INPUT HORÁRIO MOBILE
+========================= */
+
+input[type="time"] {
+  width: 100%;
+  min-width: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  background: #fff;
+}
+
+/* Ajuste especial para celular */
+@media (max-width: 768px) {
+
+  input[type="time"] {
+    font-size: 16px; /* evita zoom no iPhone */
+    padding: 12px 14px;
+    height: 48px;
+    line-height: normal;
+  }
+
+  /* Corrige corte do texto */
+  .field-group {
+    width: 100%;
+    overflow: visible;
+  }
+
+  .schedule-box {
+    overflow: visible;
+  }
+
+  /* Se tiver botão junto */
+  .schedule-box .btn,
+  .schedule-box button {
+    width: 100%;
+    white-space: normal;
+  }
+
+}
