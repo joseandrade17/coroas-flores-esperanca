@@ -49,28 +49,10 @@
     document.title = `${p.name} – Coroas Flores Esperança`;
     document.getElementById('breadName').textContent = p.name;
 
+    // Miniaturas de tamanho (apenas texto)
     const thumbs = SIZES.map(sz => `
       <div class="size-thumb${selectedSize===sz.id?' active':''}" onclick="setSize('${sz.id}')">
-        <div style="width:70px;height:70px">${wreathSVG(SIZE_SCALES[sz.id], selectedSize===sz.id)}</div>
         <div class="size-thumb__label">${sz.label}</div>
-        <div class="size-thumb__dim">${sz.dimensions}</div>
-        <div class="size-thumb__addon">${sz.addon===0?'Sem acréscimo':'+ '+fmtPrice(sz.addon)}</div>
-      </div>
-    `).join('');
-
-    const compareSVGs = SIZES.map(sz => {
-      const h = {P:52,M:68,G:88}[sz.id];
-      return `<div class="size-compare__item${selectedSize===sz.id?' active':''}" onclick="setSize('${sz.id}')">
-        <div style="width:${h}px;height:${h}px">${wreathSVG(SIZE_SCALES[sz.id], selectedSize===sz.id)}</div>
-        <span>${sz.id}</span><small>${sz.dimensions}</small>
-      </div>`;
-    }).join('');
-
-    const sizeSel = SIZES.map(sz => `
-      <div class="product-size-opt${selectedSize===sz.id?' active':''}" onclick="setSize('${sz.id}')">
-        <div class="product-size-opt__letter">${sz.id}</div>
-        <div class="product-size-opt__dim">${sz.dimensions}</div>
-        <div class="product-size-opt__addon">${sz.addon===0?'Sem acréscimo':'+ '+fmtPrice(sz.addon)}</div>
       </div>
     `).join('');
 
@@ -79,46 +61,46 @@
     document.getElementById('productContent').innerHTML = `
       <div class="product-layout">
       <div>
-  <div class="product-img-main">
-    <div class="product-img-badges">
-      <span class="badge badge--primary">${p.badge}</span>
-      <span class="badge badge--red">-${p.discount}% OFF</span>
-    </div>
-    <img src="${base}${p.image}" alt="${p.name}"/>
-  </div>
+        <div class="product-img-main">
+          <div class="product-img-badges">
+            <span class="badge badge--primary">${p.badge}</span>
+            <span class="badge badge--red">-${p.discount}% OFF</span>
+          </div>
+          <img src="${base}${p.image}" alt="${p.name}"/>
+        </div>
 
-  <!-- Miniaturas de tamanho -->
-  <div class="size-thumbs">${thumbs}</div>
+        <!-- Miniaturas de tamanho -->
+        <div class="size-thumbs">${thumbs}</div>
 
-  <!-- Comparação de Tamanhos com fotos reais -->
-  <div class="size-compare">
-    <h4>Comparação de Tamanhos</h4>
-    <div class="size-compare__svgs">
-      
-      <!-- Pequena -->
-      <div class="size-compare__item ${selectedSize === 'P' ? 'active' : ''}" onclick="setSize('P')">
-        <img src="imagens/tamanho-p.png" alt="Coroa Pequena">
-        <span>P</span>
-        <small>1,00m × 1,00m</small>
+        <!-- Comparação de Tamanhos - 3 IMAGENS DO MESMO TAMANHO -->
+        <div class="size-compare">
+          <h4>Comparação de Tamanhos</h4>
+          <div class="size-compare__svgs">
+            
+            <!-- Pequena  -->
+            <div class="size-compare__item ${selectedSize === 'P' ? 'active' : ''}" onclick="setSize('P')">
+              <img src="imagens/tamanho-p.png" alt="Coroa Pequena" style="width: 900px; height: auto;">
+              <span>P</span>
+              <small>1,00m × 1,00m</small>
+            </div>
+
+            <!-- Média -->
+            <div class="size-compare__item ${selectedSize === 'M' ? 'active' : ''}" onclick="setSize('M')">
+              <img src="imagens/tamanho-m.png" alt="Coroa Média" style="width: 900px; height: auto;">
+              <span>M</span>
+              <small>1,00m × 1,20m</small>
+            </div>
+
+            <!-- Grande -->
+            <div class="size-compare__item ${selectedSize === 'G' ? 'active' : ''}" onclick="setSize('G')">
+              <img src="imagens/tamanho-g.png" alt="Coroa Grande" style="width: 900px; height: auto;">
+              <span>G</span>
+              <small>1,00m × 1,50m</small>
+            </div>
+
+          </div>
+        </div>
       </div>
-
-      <!-- Média -->
-      <div class="size-compare__item ${selectedSize === 'M' ? 'active' : ''}" onclick="setSize('M')">
-        <img src="imagens/tamanho-m.png" alt="Coroa Média">
-        <span>M</span>
-        <small>1,00m × 1,20m</small>
-      </div>
-
-      <!-- Grande -->
-      <div class="size-compare__item ${selectedSize === 'G' ? 'active' : ''}" onclick="setSize('G')">
-        <img src="imagens/tamanho-g.png" alt="Coroa Grande">
-        <span>G</span>
-        <small>1,00m × 1,50m</small>
-      </div>
-
-    </div>
-  </div>
-</div>
 
         <div>
           <div class="product-rating">
@@ -134,11 +116,6 @@
           <div class="product-ribbon-banner">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 3l14 9-14 9V3z"/></svg>
             <div><strong>Faixa de Homenagem Gratuita</strong><span>Acompanha faixa personalizada sem custo adicional.</span></div>
-          </div>
-
-          <div class="product-sizes">
-            <div class="product-sizes__header"><h3>Escolha o Tamanho</h3><span>${s.dimensions}</span></div>
-            <div class="product-sizes__grid">${sizeSel}</div>
           </div>
 
           <div class="product-ctas">
@@ -160,14 +137,15 @@
 
           <div class="product-desc">
             <h3>Descrição do Produto</h3>
-            <!-- Aviso de Substituição de Flores -->
             <div style="margin: 1.25rem 0; padding: 1rem 1.25rem; background: #fefce8; border-left: 4px solid #eab308; border-radius: 8px; font-size: 0.87rem; color: #713f12;">
-              <strong style="color: #854d0e;">⚠️ Aviso sobre as flores:</strong><br><br>
+              <strong style="color: #854d0e;">⚠️ Avisos importantes:</strong><br><br>
               📸 <strong>Fotos meramente ilustrativas</strong> — As imagens são representativas. O arranjo final pode variar ligeiramente.<br><br>
-              🌸Devido à sazonalidade das flores, pode haver substituição de espécies, sempre respeitando a cor escolhida e o padrão do arranjo, com reposição por flores de igual qualidade.
+              🌸 Devido à sazonalidade das flores, pode haver substituição de espécies, sempre respeitando a cor escolhida e o padrão do arranjo, com reposição por flores de igual qualidade.
             </div>
+            
             <p>${p.description}</p>
             <p>As flores utilizadas podem variar de acordo com a época do ano, garantindo sempre a melhor qualidade e durabilidade para a homenagem.</p>
+            
             <div class="product-features">
               ${features.map(f => `<div class="product-feature"><div class="product-feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>${f}</div>`).join('')}
             </div>
@@ -178,23 +156,22 @@
   }
 
   function setSize(id) { 
-  selectedSize = id;
-  renderPage();
-}
+    selectedSize = id;
+    renderPage();
+  }
 
-function whatsappBuy() {
-  const text = `Olá! Vim pelo site Coroas Floresperança 24h e gostaria de informações.`;
+  function whatsappBuy() {
+    const text = `Olá! Vim pelo site Coroas Floresperança 24h e gostaria de informações.`;
+    window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`, '_blank');
+  }
 
-  window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`, '_blank');
-}
-
-document.addEventListener('DOMContentLoaded', () => { 
-  const base = getBase();
-  document.getElementById('breadHome').href = base + 'index.html';
-  document.getElementById('breadCatalog').href = base + '/index.html#catalogo';
-  product = getProduct();
-  renderPage();
-});
+  document.addEventListener('DOMContentLoaded', () => { 
+    const base = getBase();
+    document.getElementById('breadHome').href = base + 'index.html';
+    document.getElementById('breadCatalog').href = base + '/index.html#catalogo';
+    product = getProduct();
+    renderPage();
+  });
 </script>
 </body>
 </html>
