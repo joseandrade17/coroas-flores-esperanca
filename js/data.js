@@ -78,7 +78,7 @@ const PRODUCTS = [
     originalPrice: 320, 
     discount: 12, 
     image: "imagens/classica-5.jpeg",
-    description:  "🌼 Composição Base: Crisântemos + 2 tipos de flores de época como: Rosas, lisianthus, astromélias, gérberas, entre outras, acompanhadas de folhagens. 🎨 Opções de cores: Branca, Amarela, Colorida, Vermelha e Rosa.",
+    description:  " Composição Base: Crisântemos + 2 tipos de flores de época como: Rosas, lisianthus, astromélias, gérberas, entre outras, acompanhadas de folhagens.  Opções de cores: Branca, Amarela, Colorida, Vermelha e Rosa.",
     sizePrices: {
       "P": 200,
       "M": 250,
