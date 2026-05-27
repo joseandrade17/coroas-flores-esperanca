@@ -208,7 +208,7 @@
 <script src="./js/main.js"></script>
 <script>
   let selectedProduct = null;
-  let selectedSize = 'M';
+  let selectedSize = SIZES[0].id;
   let fraseCat = 'Todas';
 
   // ─── Init from URL params ─────────────────────────────
@@ -247,22 +247,48 @@
   }
 
   function selectProduct(id) {
-    selectedProduct = id;
-    renderFormProducts();
-    updateSummary();
-    validateForm();
-  }
+  selectedProduct = id;
+
+  renderFormProducts();
+  renderFormSizes();
+  updateSummary();
+  validateForm();
+}
 
   // ─── Render sizes ─────────────────────────────────────
   function renderFormSizes() {
-    document.getElementById('formSizes').innerHTML = SIZES.map(s => `
-      <div class="form-size${selectedSize===s.id?' selected':''}" onclick="selectSize('${s.id}')">
-        <div class="form-size__letter">${s.id}</div>
-        <div class="form-size__dim">${s.dimensions}</div>
-        <div class="form-size__addon">${s.addon===0?'Sem acréscimo':'+ '+fmtPrice(s.addon)}</div>
+
+  const p = PRODUCTS.find(x => x.id === selectedProduct);
+
+  document.getElementById('formSizes').innerHTML = SIZES.map(s => {
+
+    const price =
+      p?.sizePrices?.[s.id]
+        ? fmtPrice(p.sizePrices[s.id])
+        : '';
+
+    return `
+      <div class="form-size ${selectedSize === s.id ? 'selected' : ''}"
+           onclick="selectSize('${s.id}')">
+
+        <div class="form-size__letter">
+          ${s.id}
+        </div>
+
+        <div class="form-size__dim">
+          ${s.label}
+          <br>
+          <small>${s.dimensions}</small>
+        </div>
+
+        <div class="form-size__price">
+          ${price}
+        </div>
+
       </div>
-    `).join('');
-  }
+    `;
+  }).join('');
+}
 
   function selectSize(id) {
     selectedSize = id;
@@ -272,51 +298,192 @@
 
   // ─── Summary ──────────────────────────────────────────
   function updateSummary() {
-    const p = PRODUCTS.find(x => x.id === selectedProduct);
-    const s = SIZES.find(x => x.id === selectedSize) || SIZES[1];
-    const total = p ? p.basePrice + s.addon : 0;
-    const base = getBase();
-    const cem = document.getElementById('cemiterioInput').value;
-    const dv = document.getElementById('dataVelorio')?.value;
-    const hv = document.getElementById('horarioVelorio')?.value;
-    const he = document.getElementById('horarioEntrega').value; 
-    const de = document.getElementById('dataEntrega')?.value;
-    const hs = document.getElementById('horarioSepultamento')?.value;
-    const faixa = document.getElementById('faixaMensagem')?.value;
-    const pagamento = document.getElementById('formaPagamento')?.value;
 
-    if (!p) {
-      document.getElementById('summaryContent').innerHTML = `<p style="color:var(--muted);font-size:.85rem;text-align:center;padding:1rem 0">Selecione uma coroa para ver o resumo.</p>`;
-      return;
-    }
-    let html = `
-      <div class="summary-product">
-        <img src="${base}${p.image}" alt="${p.name}"/>
-        <div><div class="summary-product__name">${p.name}</div><div class="summary-product__size">Tamanho ${s.id} (${s.dimensions})</div></div>
-      </div>`;
-    if (cem) html += `<div class="summary-info"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>${cem}</span></div>`;
-    if (dv||hv) html += `<div class="summary-info"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Velório: ${dv?fmtDate(dv):''}${hv?' às '+hv:''}</span></div>`;
-    if (de||hs) html += `<div class="summary-info"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Sepultamento: ${de?fmtDate(de):''}${hs?' às '+hs:''}</span></div>`;
-    if (pagamento) {
-  html += `
-    <div class="summary-info">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <rect x="2" y="5" width="20" height="14" rx="2"/>
-        <line x1="2" y1="10" x2="22" y2="10"/>
-      </svg>
-      <span>Pagamento: ${pagamento}</span>
-    </div>
-  `;
-}
-    html += `<hr class="summary-divider"/>
-      <div class="summary-row"><span>Coroa (${s.id})</span><span>${fmtPrice(p.basePrice)}</span></div>`;
-    if (s.addon>0) html += `<div class="summary-row"><span>Acréscimo tamanho</span><span>+ ${fmtPrice(s.addon)}</span></div>`;
-    html += `<div class="summary-row"><span>Faixa de homenagem</span><span class="summary-free">Grátis</span></div>
-      <div class="summary-row"><span>Frete</span><span class="summary-free">Grátis</span></div>
-      <div class="summary-row total"><span>Total</span><span class="price">${fmtPrice(total)}</span></div>`;
-    if (faixa) html += `<div class="summary-frase"><small>Mensagem da faixa:</small><p>"${faixa}"</p></div>`;
-    document.getElementById('summaryContent').innerHTML = html;
+  const p = PRODUCTS.find(x => x.id === selectedProduct);
+  const s = SIZES.find(x => x.id === selectedSize) || SIZES[1];
+
+  const total =
+    p?.sizePrices?.[selectedSize]
+    || p?.basePrice
+    || 0;
+
+  const base = getBase();
+
+  // CAMPOS
+  const nome = document.getElementById('nome')?.value;
+  const telefone = document.getElementById('telefone')?.value;
+  const falecido = document.getElementById('falecido')?.value;
+
+  const cem = document.getElementById('cemiterioInput')?.value;
+
+  const dv = document.getElementById('dataVelorio')?.value;
+  const hv = document.getElementById('horarioVelorio')?.value;
+
+  const he = document.getElementById('horarioEntrega')?.value;
+
+  const de = document.getElementById('dataEntrega')?.value;
+  const hs = document.getElementById('horarioSepultamento')?.value;
+
+  const faixa = document.getElementById('faixaMensagem')?.value;
+
+  const obs = document.getElementById('observacoes')?.value;
+
+  const pagamento = document.getElementById('formaPagamento')?.value;
+
+  // SE NÃO ESCOLHEU PRODUTO
+  if (!p) {
+    document.getElementById('summaryContent').innerHTML = `
+      <p style="color:var(--muted);font-size:.85rem;text-align:center;padding:1rem 0">
+        Selecione uma coroa para ver o resumo.
+      </p>
+    `;
+    return;
   }
+
+  let html = `
+
+    <div class="summary-product">
+      <img src="${base}${p.image}" alt="${p.name}"/>
+
+      <div>
+        <div class="summary-product__name">
+          ${p.name}
+        </div>
+
+        <div class="summary-product__size">
+          Tamanho ${s.id} (${s.dimensions})
+        </div>
+      </div>
+    </div>
+
+  `;
+
+  // CLIENTE
+  if (nome) {
+    html += `
+      <div class="summary-info">
+        <strong>Cliente:</strong> ${nome}
+      </div>
+    `;
+  }
+
+  // TELEFONE
+  if (telefone) {
+    html += `
+      <div class="summary-info">
+        <strong>Telefone:</strong> ${telefone}
+      </div>
+    `;
+  }
+
+  // FALECIDO
+  if (falecido) {
+    html += `
+      <div class="summary-info">
+        <strong>Falecido:</strong> ${falecido}
+      </div>
+    `;
+  }
+
+  // CEMITÉRIO
+  if (cem) {
+    html += `
+      <div class="summary-info">
+        <strong>Local:</strong> ${cem}
+      </div>
+    `;
+  }
+
+  // VELÓRIO
+  if (dv || hv) {
+    html += `
+      <div class="summary-info">
+        <strong>Velório:</strong>
+        ${dv ? fmtDate(dv) : ''}
+        ${hv ? ' às ' + hv : ''}
+      </div>
+    `;
+  }
+
+  // ENTREGA
+  if (he) {
+    html += `
+      <div class="summary-info">
+        <strong>Horário da entrega:</strong> ${he}
+      </div>
+    `;
+  }
+
+  // SEPULTAMENTO
+  if (de || hs) {
+    html += `
+      <div class="summary-info">
+        <strong>Sepultamento:</strong>
+        ${de ? fmtDate(de) : ''}
+        ${hs ? ' às ' + hs : ''}
+      </div>
+    `;
+  }
+
+  // PAGAMENTO
+  if (pagamento) {
+    html += `
+      <div class="summary-info">
+        <strong>Pagamento:</strong> ${pagamento}
+      </div>
+    `;
+  }
+
+  // FRASE
+  if (faixa) {
+    html += `
+      <div class="summary-frase">
+        <small>Mensagem da faixa:</small>
+        <p>"${faixa}"</p>
+      </div>
+    `;
+  }
+
+  // OBSERVAÇÕES
+  if (obs) {
+    html += `
+      <div class="summary-info">
+        <strong>Observações:</strong><br>
+        ${obs}
+      </div>
+    `;
+  }
+
+  // TOTAL
+  html += `
+
+    <hr class="summary-divider"/>
+
+    <div class="summary-row">
+      <span>Coroa (${s.id})</span>
+      <span>${fmtPrice(total)}</span>
+    </div>
+
+    <div class="summary-row">
+      <span>Faixa de homenagem</span>
+      <span class="summary-free">Grátis</span>
+    </div>
+
+    <div class="summary-row">
+      <span>Frete</span>
+      <span class="summary-free">Grátis</span>
+    </div>
+
+    <div class="summary-row total">
+      <span>Total</span>
+      <span class="price">${fmtPrice(total)}</span>
+    </div>
+
+  `;
+
+  document.getElementById('summaryContent').innerHTML = html;
+}
+
 
   // ─── Cemetery autocomplete ────────────────────────────
   const cemInput = document.getElementById('cemiterioInput');
@@ -394,17 +561,45 @@
   });
 
   // ─── Summary live updates ─────────────────────────────
-  ['cemiterioInput','formaPagamento','dataVelorio','horarioVelorio','horarioEntrega','dataEntrega','horarioSepultamento','faixaMensagem','observacoes'].forEach(id => {
-    document.getElementById(id)?.addEventListener('input', () => { updateSummary(); validateForm(); });
+ // ─── Summary live updates ─────────────────────────────
+[
+  'nome',
+  'telefone',
+  'falecido',
+  'cemiterioInput',
+  'dataVelorio',
+  'horarioVelorio',
+  'horarioEntrega',
+  'dataEntrega',
+  'horarioSepultamento',
+  'faixaMensagem',
+  'observacoes',
+  'formaPagamento'
+].forEach(id => {
+
+  document.getElementById(id)?.addEventListener('input', () => {
+    updateSummary();
+    validateForm();
   });
+
+});
 
   // ─── Validation ───────────────────────────────────────
   function validateForm() {
-    const ok = selectedProduct && document.getElementById('nome').value.trim() && document.getElementById('telefone').value.trim() && document.getElementById('cemiterioInput').value.trim() && document.getElementById('dataEntrega').value;document.getElementById('formaPagamento').value;
-    document.getElementById('submitBtn').disabled = !ok;
-    document.getElementById('submitNote').textContent = ok ? '' : 'Preencha os campos obrigatórios (*) para continuar.';
-  }
+  const ok =
+    selectedProduct &&
+    selectedSize &&
+    document.getElementById('nome').value.trim() &&
+    document.getElementById('telefone').value.trim() &&
+    document.getElementById('cemiterioInput').value.trim() &&
+    document.getElementById('dataEntrega').value &&
+    document.getElementById('formaPagamento').value;
 
+  document.getElementById('submitBtn').disabled = !ok;
+
+  document.getElementById('submitNote').textContent =
+    ok ? '' : 'Preencha os campos obrigatórios (*) para continuar.';
+}
   document.getElementById('nome').addEventListener('input', validateForm);
 document.getElementById('falecido').addEventListener('input', validateForm);
 document.getElementById('telefone').addEventListener('input', validateForm);
@@ -415,7 +610,7 @@ document.getElementById('formaPagamento').addEventListener('change', validateFor
     e.preventDefault();
     const p = PRODUCTS.find(x => x.id === selectedProduct);
     const s = SIZES.find(x => x.id === selectedSize) || SIZES[1];
-    const total = p ? p.basePrice + s.addon : 0;
+   const total = p?.sizePrices?.[selectedSize] || p?.basePrice|| 0;
     const dv = document.getElementById('dataVelorio').value;
     const hv = document.getElementById('horarioVelorio').value;
     const he = document.getElementById('horarioEntrega').value;
@@ -424,34 +619,97 @@ document.getElementById('formaPagamento').addEventListener('change', validateFor
     const faixa = document.getElementById('faixaMensagem').value;
     const obs = document.getElementById('observacoes').value;
     const lines = [
-      '*PEDIDO - Coroas Flores Esperança*', '',
-      `*Produto:* ${p?.name}`,
-      `*Tamanho:* ${s.id} (${s.dimensions})`,
-      `*Preço:* ${fmtPrice(total)}`, '',
-      '*Dados do Pedido:*',
-      `Nome: ${document.getElementById('nome').value}`,
-      `Falecido: ${document.getElementById('falecido').value}`,
-      `Telefone: ${document.getElementById('telefone').value}`,
-      `Forma de Pagamento: ${document.getElementById('formaPagamento').value}`,
-      `Cemitério: ${document.getElementById('cemiterioInput').value}`,
-      dv ? `Início do Velório: ${fmtDate(dv)}${hv?' às '+hv:''}` : '',
-      he ? `*Horário de Entrega Desejado:* ${he}` : '',
-      de ? `Data do Sepultamento: ${fmtDate(de)}` : '',
-      hs ? `Horário do Sepultamento: ${hs}` : '', '',
-      faixa ? `*Mensagem da Faixa:* "${faixa}"` : 'Faixa: (a combinar)',
-      obs ? `*Observações:* ${obs}` : '',
-    ].filter(Boolean).join('\n');
+
+'*NOVO PEDIDO – FLORESPERANÇA*',
+'━━━━━━━━━━━━━━━━━━',
+'',
+
+'*DADOS DO PRODUTO*',
+`• Coroa: ${p?.name}`,
+`• Tamanho: ${s.id} (${s.dimensions})`,
+`• Valor: ${fmtPrice(total)}`,
+'',
+
+'*DADOS DO CLIENTE*',
+`• Nome: ${document.getElementById('nome').value}`,
+`• Telefone: ${document.getElementById('telefone').value}`,
+'',
+
+'*FALECIDO*',
+`• ${document.getElementById('falecido').value}`,
+'',
+
+'*LOCAL DA ENTREGA*',
+`• ${document.getElementById('cemiterioInput').value}`,
+'',
+
+'*HORÁRIOS*',
+
+dv
+  ? `• Velório: ${fmtDate(dv)}${hv ? ' às ' + hv : ''}`
+  : '',
+
+he
+  ? `• Entrega desejada: ${he}`
+  : '',
+
+de
+  ? `• Sepultamento: ${fmtDate(de)}`
+  : '',
+
+hs
+  ? `• Horário sepultamento: ${hs}`
+  : '',
+
+'',
+
+'*PAGAMENTO*',
+`• ${document.getElementById('formaPagamento').value}`,
+'',
+
+faixa
+  ? `*FAIXA*\n"${faixa}"`
+  : '',
+
+obs
+  ? `*OBSERVAÇÕES*\n${obs}`
+  : '',
+
+'━━━━━━━━━━━━━━━━━━',
+`*TOTAL: ${fmtPrice(total)}*`,
+'',
+
+'Pedido enviado pelo site Floresperança'
+
+].filter(Boolean).join('\n');
     window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(lines)}`, '_blank');
     document.getElementById('successAlert').classList.remove('hidden');
   });
 
   document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('breadHome').href = getBase() + 'index.html';
-    document.getElementById('linkCemiterios').href = getBase() + 'cemiterios.html';
-    renderFormProducts();
-    renderFormSizes();
-    validateForm();
-  });
+
+  document.getElementById('breadHome').href =
+    getBase() + 'index.html';
+
+  document.getElementById('linkCemiterios').href =
+    getBase() + 'cemiterios.html';
+
+  // PEGA PRODUTO E TAMANHO DA URL
+  const params = new URLSearchParams(window.location.search);
+
+  selectedProduct =
+    parseInt(params.get('id')) || selectedProduct;
+
+  selectedSize =
+    params.get('size') || selectedSize;
+
+  // RENDERIZA
+  renderFormProducts();
+  renderFormSizes();
+  updateSummary();
+  validateForm();
+
+});
 </script>
 </body>
 </html>
