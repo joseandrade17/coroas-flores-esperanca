@@ -1410,3 +1410,39 @@ input[type="time"] {
   }
 
 }
+}/* AJUSTE DA CAIXA VERDE NO CELULAR */
+@media (max-width: 768px) {
+
+  .ribbon-banner,
+  .product-ribbon-banner,
+  .faixa-info,
+  .info-box {
+    
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: .8rem;
+
+    text-align: left;
+  }
+
+  .ribbon-banner span,
+  .product-ribbon-banner span,
+  .faixa-info span,
+  .info-box span {
+
+    width: 100%;
+
+    white-space: normal;
+
+    word-break: break-word;
+
+    line-height: 1.5;
+  }
+
+}/* IMPEDIR TEXTO ESPREMIDO */
+* {
+  min-width: 0;
+}
