@@ -1446,3 +1446,43 @@ input[type="time"] {
 * {
   min-width: 0;
 }
+/* IMPEDIR TEXTO ESPREMIDO */
+* {
+  min-width: 0;
+}.filters-row {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* centraliza tudo */
+  gap: 1.5rem;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+}
+
+.cat-pills {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  margin: 0;
+}
+
+.price-filter {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  margin: 0;
+}
+
+.price-filter label {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.price-filter select {
+  height: 42px;
+  min-width: 150px;
+  padding: 0 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
