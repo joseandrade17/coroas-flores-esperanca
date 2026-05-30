@@ -101,7 +101,7 @@
                 Sepultamento / Entrega
               </div>
               <div class="grid-2">
-                <div class="field-group"><label for="dataEntrega">Data do Sepultamento <span style="color:var(--red)">*</span></label><input id="dataEntrega" type="date" required/></div>
+                <div class="field-group"><label for="dataEntrega">Data do Sepultamento <span style="color:var(--red)">*</span></label><input id="dataEntrega" type="date"></div>
                 <div class="field-group"><label for="horarioSepultamento">Horário do Sepultamento</label><input id="horarioSepultamento" type="time"/></div>
               </div>
             </div>
@@ -591,8 +591,8 @@
     selectedSize &&
     document.getElementById('nome').value.trim() &&
     document.getElementById('telefone').value.trim() &&
+    document.getElementById('falecido').value.trim() &&
     document.getElementById('cemiterioInput').value.trim() &&
-    document.getElementById('dataEntrega').value &&
     document.getElementById('formaPagamento').value;
 
   document.getElementById('submitBtn').disabled = !ok;
