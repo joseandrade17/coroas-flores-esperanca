@@ -86,20 +86,20 @@ const PRODUCTS = [
     }
   },
   { 
-    id: 6,   
+   id: 6,   
     sku: "C-6",
-    name: "Ref: C-6 - Coroa Clássica Colorida",   
+    name: "Ref: C-6 - Coroa Clássica Vermelha",   
     category: "Clássica", 
     badge: "CLÁSSICA", 
     basePrice: 260,
     originalPrice: 300,
     discount: 13,
-    image: "/coroa-luxo-branca.jpg", 
-    description: "Flores coloridas em arranjo clássico, trazendo vida e cor à homenagem com bom custo-benefício.",
+    image: "imagens/classica-6.jpeg", 
+    description: " Composição Base: Crisântemos + 2 tipos de flores de época como: Rosas, lisianthus, astromélias, gérberas, entre outras, acompanhadas de folhagens. Opções de cores: Branca, Vermelha.",
     sizePrices: {
-      "P": 260,
-      "M": 320,
-      "G": 390
+      "P": 200,
+      "M": 250,
+      "G": 380
     }
   },
   { 
@@ -145,12 +145,12 @@ const PRODUCTS = [
     basePrice: 295, 
     originalPrice: 340, 
     discount: 13, 
-    image: "/coroa-luxo-branca.jpg", 
-    description: "Delicada composição em tons de rosa com flores do campo, transmitindo carinho e ternura na homenagem.",
+    image: "imagens/classica-9.jpeg", 
+    description: "Composição Base: Crisântemos + 2 tipos de flores de época como: Margarida, astromélias, acompanhadas de folhagens. Opções de cores: Colorida.",
     sizePrices: {
-      "P": 295,
-      "M": 355,
-      "G": 425
+      "P": 200,
+      "M": 250,
+      "G": 380
     }
   },
   { 
