@@ -105,14 +105,14 @@ const PRODUCTS = [
   { 
     id: 7, 
     sku: "L-7",
-    name: "Ref: L-7 - Coroa Luxo Vermelha",       
+    name: "Ref: L-7 - Coroa Luxo Branca",       
     category: "Luxo",    
     badge: "LUXO",    
     basePrice: 445, 
     originalPrice: 510, 
     discount: 13, 
-    image: "/coroa-luxo-branca.jpg", 
-    description: "Imponente composição em vermelho intenso com rosas Nobre e folhagens exuberantes, de presença marcante.",
+    image: "imagens/luxo-7.jpeg", 
+    description: "Composição Base: Crisântemos + 2 tipos de flores de época como: lisianthus, astromélias, gérberas,  acompanhadas de folhagens. 2 TIPOS DE FLORES NOBRES:  lírio, antúrio, Rosas , Copo de leite ,boca de leão  Opções de cores: Branca.",
     sizePrices: {
       "P": 445,
       "M": 505,
