@@ -247,7 +247,7 @@ const PRODUCTS = [
     basePrice: 285, 
     originalPrice: 325, 
     discount: 12, 
-    image: "/coroa-luxo-branca.jpg", 
+    image: "imagens/classica-15.jpeg", 
     description: "Composição Base: Crisântemos + 2 tipos de flores de época como: Rosas, lisianthus, astromélias, gérberas, entre outras, acompanhadas de folhagens. Opções de cores: Branca, Rosa.",
     sizePrices: {
       "P": 285,
