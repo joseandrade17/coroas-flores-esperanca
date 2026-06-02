@@ -139,7 +139,7 @@ const PRODUCTS = [
   { 
     id: 9, 
     sku: "C-9",
-    name: "Ref: C-9 - Coroa Clássica Rosa",        
+    name: "Ref: C-9 - Coroa Clássica Colorida",        
     category: "Clássica", 
     badge: "CLÁSSICA", 
     basePrice: 295, 
@@ -196,8 +196,8 @@ const PRODUCTS = [
     basePrice: 270, 
     originalPrice: 310, 
     discount: 13, 
-    image: "/coroa-luxo-branca.jpg", 
-    description: "Alegre e acolhedora, com flores amarelas e brancas que trazem calor e luminosidade à cerimônia.",
+    image: "imagens/classica-12.png", 
+    description: "Composição Base: Crisântemos + 2 tipos de flores de época como: Rosas, lisianthus, astromélias, gérberas, entre outras, acompanhadas de folhagens. Opções de cores: Branca, Amarela.",
     sizePrices: {
       "P": 270,
       "M": 330,
@@ -241,14 +241,14 @@ const PRODUCTS = [
   { 
     id: 15, 
     sku: "C-15",
-    name: "Ref: C-15 - Coroa Clássica Mista",        
+    name: "Ref: C-15 - Coroa Clássica Rosa",        
     category: "Clássica",
     badge: "CLÁSSICA", 
     basePrice: 285, 
     originalPrice: 325, 
     discount: 12, 
     image: "/coroa-luxo-branca.jpg", 
-    description: "Harmoniosa mistura de flores de estação em arranjo clássico, colorido e afetuoso.",
+    description: "Composição Base: Crisântemos + 2 tipos de flores de época como: Rosas, lisianthus, astromélias, gérberas, entre outras, acompanhadas de folhagens. Opções de cores: Branca, Rosa.",
     sizePrices: {
       "P": 285,
       "M": 345,
