@@ -258,14 +258,14 @@ const PRODUCTS = [
   { 
     id: 16,
     sku: "L-16",
-    name: "Ref: L-16 - Coroa Luxo Coral",            
+    name: "Ref: L-16 - Coroa Luxo Vermelha",            
     category: "Luxo",      
     badge: "LUXO",     
     basePrice: 415, 
     originalPrice: 475, 
     discount: 13, 
-    image: "/coroa-luxo-branca.jpg", 
-    description: "Bela composição em coral e pêssego com rosas, crisântemos e folhagens variadas de alta qualidade.",
+    image: "imagens/luxo-16.jpeg", 
+    description: "Composição Base:  Rosas brancas e vermelhas, gipsofila e áster. SEM CRISÂNTEMOS",
     sizePrices: {
       "P": 415,
       "M": 475,
