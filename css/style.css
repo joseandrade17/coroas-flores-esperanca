@@ -1448,3 +1448,6 @@ input[type="time"] {
     width: 100%;
     min-width: 0;
 }
+* {
+    outline: 1px solid red;
+}
