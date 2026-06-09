@@ -1425,3 +1425,26 @@ transform: scale(1.08);
     line-height:1.5;
     color:#475569;
 }
+html,
+body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+input,
+select,
+textarea {
+    max-width: 100%;
+}
+
+input[type="date"],
+input[type="time"] {
+    width: 100%;
+    min-width: 0;
+}
