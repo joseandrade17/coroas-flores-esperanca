@@ -60,7 +60,7 @@ const PRODUCTS = [
     basePrice: 480,
     originalPrice: 550, 
     discount: 13, 
-    image: "imagens/Nobre-4.jpeg", 
+    image: "imagens/nobre-4.jpeg", 
     description: "Composição Base:  Rosas brancas e vermelhas, gipsofila e áster. SEM CRISÂNTEMOS",
     sizePrices: {
       "P": 480,
