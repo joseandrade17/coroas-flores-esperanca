@@ -173,14 +173,14 @@ const PRODUCTS = [
   { 
     id: 11, 
     sku: "N-11",
-    name: "Ref: N-11 - Coroa Nobre Lilás",         
+    name: "Ref: N-11 - Coroa Nobre Branco",         
     category: "Nobre",  
     badge: "Nobre",  
     basePrice: 540,
     originalPrice: 620, 
     discount: 13, 
-    image: "/coroa-luxo-branca.jpg", 
-    description: "Sofisticada composição em tons de lilás e roxo com flores nobres cuidadosamente selecionadas.",
+    image: "imagens/nobre-11.jpeg", 
+    description: "Composição Base: Crisântemos + 2 tipos de flores de época como: lisianthus, astromélias, gérberas,. 2 TIPOS DE FLORES NOBRES: lírio, Rosas , Gipsofila Opções de cores: Branca.",
     sizePrices: {
       "P": 540,
       "M": 600,
