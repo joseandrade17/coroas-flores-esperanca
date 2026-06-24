@@ -122,14 +122,14 @@ const PRODUCTS = [
   { 
     id: 8,   
     sku: "N-8",
-    name: "Ref: N-8 - Coroa Nobre Branca",       
+    name: "Ref: N-8 - Coroa Nobre Flores Girassol",       
     category: "Nobre",  
     badge: "Nobre",  
     basePrice: 580, 
     originalPrice: 660, 
     discount: 12, 
-    image: "/coroa-luxo-branca.jpg", 
-    description: "Majestosa coroa toda em branco com orquídeas, lírios e crisântemos selecionados, símbolo de pureza e respeito.",
+    image: "imagens/nobre-8.jpeg", 
+    description: "Composição Base: Girassol e tango. SEM CRISÂNTEMOS",
     sizePrices: {
       "P": 580,
       "M": 640,
