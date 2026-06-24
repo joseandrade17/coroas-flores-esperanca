@@ -224,14 +224,14 @@ const PRODUCTS = [
   { 
     id: 14, 
     sku: "N-14",
-    name: "Ref: N-14 - Coroa Nobre Pérola",        
+    name: "Ref: N-14 - Coroa Nobre Amarela",        
     category: "Nobre",  
     badge: "Nobre",  
     basePrice: 620, 
     originalPrice: 710, 
     discount: 13, 
-    image: "/coroa-luxo-branca.jpg", 
-    description: "Exclusiva composição com flores brancas e creme em tons perlados, de elegância inigualável.",
+    image: "imagens/nobre-14.jpeg", 
+    description: "Composição Base: Rosas brancas e amarela, gipsofila e áster. SEM CRISÂNTEMOS",
     sizePrices: {
       "P": 620,
       "M": 680,
