@@ -394,14 +394,14 @@ const PRODUCTS = [
   { 
     id: 24, 
     sku: "C-24",
-    name: "Ref: C-24 - Coroa Clássica Branca e Azul",     
+    name: "Ref: C-24 - Coroa Clássica Branca e Amarela",     
     category: "Clássica",
     badge: "CLÁSSICA", 
     basePrice: 240, 
     originalPrice: 275, 
     discount: 13, 
-    image: "imagens/classica-.jpeg", 
-    description: "Composição Base: Crisântemos + 2 tipos de flores de época como: astromélias, gérberas, entre outras, acompanhadas de folhagens. Opções de cores: Branca, Azul.",
+    image: "imagens/classica-24.jpeg", 
+    description: "Composição Base: crisântemos  branco e amarelo, + Folhagens Cor: branca e amarela.",
     sizePrices: {
       "P": 240,
       "M": 300,
