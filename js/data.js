@@ -400,7 +400,7 @@ const PRODUCTS = [
     basePrice: 240, 
     originalPrice: 275, 
     discount: 13, 
-    image: "imagens/classica-24.jpeg", 
+    image: "imagens/classica-.jpeg", 
     description: "Composição Base: Crisântemos + 2 tipos de flores de época como: astromélias, gérberas, entre outras, acompanhadas de folhagens. Opções de cores: Branca, Azul.",
     sizePrices: {
       "P": 240,
