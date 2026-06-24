@@ -275,14 +275,14 @@ const PRODUCTS = [
   { 
     id: 17, 
     sku: "N-17",
-    name: "Ref: N-17 - Coroa Nobre Champanhe",    
+    name: "Ref: N-17 - Coroa Nobre Colorida",    
     category: "Nobre",  
     badge: "Nobre",  
     basePrice: 560, 
     originalPrice: 640, 
     discount: 12, 
-    image: "/coroa-luxo-branca.jpg", 
-    description: "Refinada composição em tons champanhe e dourado com flores nobres, transmitindo elegância única.",
+    image: "imagens/nobre-17.jpeg", 
+    description: "Composição Base: Crisântemos + 2 tipos de flores de época como: rosa, tango, astromélias, gérberas,  acompanhadas de folhagens. 2 TIPOS DE FLORES NOBRES: lírio, antúrio.",
     sizePrices: {
       "P": 560,
       "M": 620,
