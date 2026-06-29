@@ -7,8 +7,6 @@ const PRODUCTS = [
     category: "Luxo",    
     badge: "LUXO",   
     basePrice: 395, 
-    originalPrice: 450, 
-    discount: 12,
     image: "imagens/luxo-1.jpeg", 
     description: "Composição Base: Crisântemos + 2 tipos de flores de época como: lisianthus, astromélias, gérberas,  acompanhadas de folhagens. 2 TIPOS DE FLORES NOBRES: lírio, antúrio, Rosas , Gipsofila Opções de cores: Branca.",
     sizePrices: {
@@ -24,8 +22,6 @@ const PRODUCTS = [
     category: "Nobre",  
     badge: "Nobre", 
     basePrice: 520, 
-    originalPrice: 590,
-    discount: 12,
     image: "imagens/teste.png", 
     description: "Elegante composição em tons de rosa e branco,com flores Nobre de alta durabilidade.",
     sizePrices: {
@@ -41,8 +37,6 @@ const PRODUCTS = [
     category: "Luxo",    
     badge: "LUXO",     
     basePrice: 420, 
-    originalPrice: 480,
-    discount: 12,
     image: "imagens/luxo-3.png", 
     description: "Composição Base: Crisântemos + 2 tipos de flores de época como: lisianthus, astromélias, gérberas,  acompanhadas de folhagens. 2 TIPOS DE FLORES NOBRES: lírio, Rosas , Gipsofila Opções de cores: Branca.",
     sizePrices: {
@@ -57,15 +51,13 @@ const PRODUCTS = [
     name: "Ref: N-4 - Coroa Nobre Vermelha",      
     category: "Nobre",  
     badge: "Nobre",  
-    basePrice: 480,
-    originalPrice: 550, 
-    discount: 13, 
+    basePrice: 400, 
     image: "imagens/nobre-4.jpeg", 
     description: "Composição Base:  Rosas brancas e vermelhas, gipsofila e áster. SEM CRISÂNTEMOS",
     sizePrices: {
-      "P": 480,
-      "M": 540,
-      "G": 610
+      "P": 400,
+      "M": 500,
+      "G": 600
     }
   },
   { 
@@ -75,8 +67,6 @@ const PRODUCTS = [
     category: "Clássica", 
     badge: "CLÁSSICA",
     basePrice: 200,
-    originalPrice: 320, 
-    discount: 12, 
     image: "imagens/classica-5.jpeg",
     description:  " Composição Base: Crisântemos + 2 tipos de flores de época como: Rosas, lisianthus, astromélias, gérberas, entre outras, acompanhadas de folhagens.  Opções de cores: Branca, Amarela, Colorida, Vermelha e Rosa.",
     sizePrices: {
@@ -92,8 +82,6 @@ const PRODUCTS = [
     category: "Clássica", 
     badge: "CLÁSSICA", 
     basePrice: 260,
-    originalPrice: 300,
-    discount: 13,
     image: "imagens/classica-6.jpeg", 
     description: " Composição Base: Crisântemos + 2 tipos de flores de época como: Rosas, lisianthus, astromélias, gérberas, entre outras, acompanhadas de folhagens. Opções de cores: Branca, Vermelha.",
     sizePrices: {
@@ -108,15 +96,13 @@ const PRODUCTS = [
     name: "Ref: L-7 - Coroa Luxo Branca",       
     category: "Luxo",    
     badge: "LUXO",    
-    basePrice: 445, 
-    originalPrice: 510, 
-    discount: 13, 
+    basePrice: 240, 
     image: "imagens/luxo-7.jpeg", 
     description: "Composição Base: Crisântemos + 2 tipos de flores de época como: lisianthus, astromélias, gérberas,  acompanhadas de folhagens. 2 TIPOS DE FLORES NOBRES:  lírio, antúrio, Rosas , Copo de leite ,boca de leão  Opções de cores: Branca.",
     sizePrices: {
-      "P": 445,
-      "M": 505,
-      "G": 575
+      "P": 340,
+      "M": 390,
+      "G": 440
     }
   },
   { 
@@ -125,15 +111,13 @@ const PRODUCTS = [
     name: "Ref: N-8 - Coroa Nobre Flores Girassol",       
     category: "Nobre",  
     badge: "Nobre",  
-    basePrice: 580, 
-    originalPrice: 660, 
-    discount: 12, 
+    basePrice: 380, 
     image: "imagens/nobre-8.jpeg", 
     description: "Composição Base: Girassol e tango. SEM CRISÂNTEMOS",
     sizePrices: {
-      "P": 580,
-      "M": 640,
-      "G": 710
+      "P": 380,
+      "M": 480,
+      "G": 580
     }
   },
   { 
@@ -143,8 +127,6 @@ const PRODUCTS = [
     category: "Clássica", 
     badge: "CLÁSSICA", 
     basePrice: 295, 
-    originalPrice: 340, 
-    discount: 13, 
     image: "imagens/classica-9.jpeg", 
     description: "Composição Base: Crisântemos + 2 tipos de flores de época como: Margarida, astromélias, acompanhadas de folhagens. Opções de cores: Colorida.",
     sizePrices: {
@@ -160,8 +142,6 @@ const PRODUCTS = [
     category: "Luxo",     
     badge: "LUXO",     
     basePrice: 460, 
-    originalPrice: 530, 
-    discount: 13, 
     image: "imagens/luxo-10.jpeg", 
     description: "Composição Base: Crisântemos + 2 tipos de flores de época como: lisianthus, astromélias, gérberas. 2 TIPOS DE FLORES NOBRES:  lírio, Rosas ,  lírio, Rosas , Gipsofila e folhagens  Opções de cores: Branca.",
     sizePrices: {
@@ -176,14 +156,12 @@ const PRODUCTS = [
     name: "Ref: N-11 - Coroa Nobre Branco",         
     category: "Nobre",  
     badge: "Nobre",  
-    basePrice: 540,
-    originalPrice: 620, 
-    discount: 13, 
+    basePrice: 470,
     image: "imagens/nobre-11.jpeg", 
     description: "Composição Base: Crisântemos + 2 tipos de flores de época como: lisianthus, astromélias, gérberas,. 2 TIPOS DE FLORES NOBRES: lírio, Rosas , Gipsofila Opções de cores: Branca.",
     sizePrices: {
-      "P": 540,
-      "M": 600,
+      "P": 470,
+      "M": 570,
       "G": 670
     }
   },
@@ -193,9 +171,7 @@ const PRODUCTS = [
     name: "Ref: C-12 - Coroa Clássica Amarela",      
     category: "Clássica", 
     badge: "CLÁSSICA", 
-    basePrice: 270, 
-    originalPrice: 310, 
-    discount: 13, 
+    basePrice: 270,  
     image: "imagens/classica-12.png", 
     description: "Composição Base: Crisântemos + 2 tipos de flores de época como: Rosas, lisianthus, astromélias, gérberas, entre outras, acompanhadas de folhagens. Opções de cores: Branca, Amarela.",
     sizePrices: {
@@ -211,8 +187,6 @@ const PRODUCTS = [
     category: "Luxo",     
     badge: "LUXO",     
     basePrice: 490, 
-    originalPrice: 560, 
-    discount: 13,
     image: "imagens/luxo-13.jpg", 
     description: "Composição Base: Crisântemos + 2 tipos de flores de época como: lisianthus, astromélias, gérberas. 2 TIPOS DE FLORES NOBRES:  lírio, Rosas ,  lírio, Gipsofila e folhagens  Opções de cores: Branca.",
     sizePrices: {
@@ -227,15 +201,13 @@ const PRODUCTS = [
     name: "Ref: N-14 - Coroa Nobre Amarela",        
     category: "Nobre",  
     badge: "Nobre",  
-    basePrice: 620, 
-    originalPrice: 710, 
-    discount: 13, 
+    basePrice: 400, 
     image: "imagens/nobre-14.jpeg", 
     description: "Composição Base: Rosas brancas e amarela, gipsofila e áster. SEM CRISÂNTEMOS",
     sizePrices: {
-      "P": 620,
-      "M": 680,
-      "G": 750
+      "P": 400,
+      "M": 500,
+      "G": 600
     }
   },
   { 
@@ -245,8 +217,6 @@ const PRODUCTS = [
     category: "Clássica",
     badge: "CLÁSSICA", 
     basePrice: 285, 
-    originalPrice: 325, 
-    discount: 12, 
     image: "imagens/classica-15.jpeg", 
     description: "Composição Base: Crisântemos + 2 tipos de flores de época como: Rosas, lisianthus, astromélias, gérberas, entre outras, acompanhadas de folhagens. Opções de cores: Branca, Rosa.",
     sizePrices: {
@@ -261,9 +231,7 @@ const PRODUCTS = [
     name: "Ref: L-16 - Coroa Luxo Vermelha",            
     category: "Luxo",      
     badge: "LUXO",     
-    basePrice: 415, 
-    originalPrice: 475, 
-    discount: 13, 
+    basePrice: 415,  
     image: "imagens/.jpeg", 
     description: "Composição Base:  Rosas brancas e vermelhas, gipsofila e áster. SEM CRISÂNTEMOS",
     sizePrices: {
@@ -278,15 +246,13 @@ const PRODUCTS = [
     name: "Ref: N-17 - Coroa Nobre Colorida",    
     category: "Nobre",  
     badge: "Nobre",  
-    basePrice: 560, 
-    originalPrice: 640, 
-    discount: 12, 
+    basePrice: 480,  
     image: "imagens/nobre-17.jpeg", 
     description: "Composição Base: Crisântemos + 2 tipos de flores de época como: rosa, tango, astromélias, gérberas,  acompanhadas de folhagens. 2 TIPOS DE FLORES NOBRES: lírio, antúrio.",
     sizePrices: {
-      "P": 560,
-      "M": 620,
-      "G": 690
+      "P": 480,
+      "M": 580,
+      "G": 680
     }
   },
   { 
@@ -296,8 +262,6 @@ const PRODUCTS = [
     category: "Clássica", 
     badge: "CLÁSSICA", 
     basePrice: 265, 
-    originalPrice: 305, 
-    discount: 13, 
     image: "imagens/classica-18.jpeg", 
     description: "Composição Base: Crisântemos, acompanhadas de folhagens. Opções de cores: Branca.",
     sizePrices: {
@@ -312,9 +276,7 @@ const PRODUCTS = [
     name: "Ref: L-19 - Coroa Luxo Branca e Azul",          
     category: "Luxo",     
     badge: "LUXO",    
-    basePrice: 430, 
-    originalPrice: 495,
-    discount: 13, 
+    basePrice: 430,  
     image: "imagens/luxo-19.jpeg", 
     description: "Composição Base: Crisântemos + 2 tipos de flores de época como: astromélias, gérberas, entre outras, acompanhadas de folhagens. Opções de cores: Branca, Azul.",
     sizePrices: {
@@ -329,9 +291,7 @@ const PRODUCTS = [
     name: "Ref: N-20 - Coroa Nobre Fucsia",       
     category: "Nobre", 
     badge: "Nobre",  
-    basePrice: 510, 
-    originalPrice: 585,
-    discount: 13, 
+    basePrice: 510,  
     image: "/coroa-luxo-branca.jpg", 
     description: "Vibrante e marcante composição em fucsia e magenta com flores Nobre de alto impacto visual.",
     sizePrices: {
@@ -347,8 +307,6 @@ const PRODUCTS = [
     category: "Clássica", 
     badge: "CLÁSSICA",
     basePrice: 275,
-    originalPrice: 315, 
-    discount: 13, 
     image: "imagens/classica-21.jpeg", 
     description: "Composição Base: Crisântemos + 2 tipos de flores de época como: astromélias, gérberas, entre outras, acompanhadas de folhagens. Opções de cores: Branca, Amarela, Laranja.",
     sizePrices: {
@@ -364,8 +322,6 @@ const PRODUCTS = [
     category: "Luxo",    
     badge: "LUXO",    
     basePrice: 450, 
-    originalPrice: 515,
-    discount: 13, 
     image: "/coroa-luxo-branca.jpg", 
     description: "Inspirada na natureza, com folhagens nobres, flores silvestres e arranjo orgânico de extrema sofisticação.",
     sizePrices: {
@@ -380,9 +336,7 @@ const PRODUCTS = [
     name: "Ref: N-23 - Coroa Nobre Exclusiva",    
     category: "Nobre", 
     badge: "Nobre",  
-    basePrice: 680, 
-    originalPrice: 780, 
-    discount: 13, 
+    basePrice: 680,  
     image: "/coroa-luxo-branca.jpg", 
     description: "Nossa linha mais requintada, com flores importadas e arranjo personalizado. A homenagem mais especial possível.",
     sizePrices: {
@@ -397,9 +351,7 @@ const PRODUCTS = [
     name: "Ref: C-24 - Coroa Clássica Branca e Amarela",     
     category: "Clássica",
     badge: "CLÁSSICA", 
-    basePrice: 240, 
-    originalPrice: 275, 
-    discount: 13, 
+    basePrice: 240,  
     image: "imagens/classica-24.jpeg", 
     description: "Composição Base: crisântemos  branco e amarelo, + Folhagens Cor: branca e amarela.",
     sizePrices: {
@@ -415,8 +367,6 @@ const PRODUCTS = [
     category: "Luxo",    
     badge: "LUXO",     
     basePrice: 435, 
-    originalPrice: 500,
-    discount: 13,
     image: "/coroa-luxo-branca.jpg",
     description: "Arranjo delicado e leve como borboletas, com flores suaves e translúcidas em tons pastéis luxuosos.",
     sizePrices: {
