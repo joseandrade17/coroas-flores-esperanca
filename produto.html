@@ -30,13 +30,7 @@
 <script src="./js/data.js"></script>
 <script src="./js/main.js"></script>
 <script>
- const params = new URLSearchParams(window.location.search);
-
-let selectedProduct =
-  parseInt(params.get('id')) || null;
-
-let selectedSize =
-  params.get('size') || 'M';
+let selectedSize = new URLSearchParams(window.location.search).get('size') || 'M';
 
   function getProduct() {
     const id = +new URLSearchParams(window.location.search).get('id') || 1;
@@ -49,25 +43,17 @@ let selectedSize =
     return product.sizePrices[sizeId] || product.basePrice;
   }
 
-  function getOriginalPrice(product, sizeId) {
-    const currentPrice = getProductPrice(product, sizeId);
-    const ratio = product.basePrice > 0 ? currentPrice / product.basePrice : 1;
-    return Math.round(product.originalPrice * ratio);
-  }
-
-  function getDiscountPercent(product, sizeId) {
-    const current = getProductPrice(product, sizeId);
-    const original = getOriginalPrice(product, sizeId);
-    if (original === 0) return product.discount || 0;
-    return Math.round(((original - current) / original) * 100);
-  }
 
   function renderPage() {
-    const base = getBase ? getBase() : './';
+    const base = typeof getBase === 'function' ? getBase() : './';
     const p = product;
+
+    // ==================== DETECÇÃO DE PRODUTO NOBRE ====================
+    const isNobre = p.name.toLowerCase().includes('nobre') || 
+                    (p.category && p.category.toLowerCase().includes('nobre'));
+
     const total = getProductPrice(p, selectedSize);
-    const origTotal = getOriginalPrice(p, selectedSize);
-    const discount = getDiscountPercent(p, selectedSize);
+   
 
     document.title = `${p.name} – Coroas Flores Esperança`;
     document.getElementById('breadName').textContent = p.name;
@@ -88,13 +74,24 @@ let selectedSize =
       "Apoio ao cliente"
     ];
 
+    // ==================== DIMENSÕES - APENAS NOBRE MUDA ====================
+    let dimP = "1,00m × 1,00m";
+    let dimM = "1,20m × 1,00m";
+    let dimG = "1,50m × 1,00m";
+
+    if (isNobre) {
+      // ←←← ALTERE AQUI AS DIMENSÕES EXCLUSIVAS DA LINHA NOBRE ←←←
+      dimP = "1,20m × 1,00m";
+      dimM = "1,50m × 1,00m";   // ← Mude aqui o tamanho M da Nobre
+      dimG = "1,70m × 1,00m";   // ← Mude aqui o tamanho G da Nobre
+    }
+
     document.getElementById('productContent').innerHTML = `
       <div class="product-layout">
         <div>
           <div class="product-img-main">
             <div class="product-img-badges">
               <span class="badge badge--primary">${p.badge}</span>
-              <span class="badge badge--red">-${discount}% OFF</span>
             </div>
             <img src="${base}${p.image}" alt="${p.name}"/>
           </div>
@@ -106,23 +103,31 @@ let selectedSize =
           <div class="size-compare">
             <h4>Comparação de Tamanhos</h4>
             <div class="size-compare__svgs">
+
               <div class="size-compare__item ${selectedSize === 'P' ? 'active' : ''}" onclick="setSize('P')">
-                <img src="imagens/tamanho-p.png" alt="Coroa Pequena" style="width: 900px; height: auto;">
+                <img src="${isNobre ? 'imagens/nobre-p.jpg' : 'imagens/tamanho-p.png'}" 
+                     alt="Coroa Pequena" 
+                     style="width: 900px; height: auto;">
                 <span>P</span>
-                <small>1,00m × 1,00m</small>
+                <small>${dimP}</small>
               </div>
 
               <div class="size-compare__item ${selectedSize === 'M' ? 'active' : ''}" onclick="setSize('M')">
-                <img src="imagens/tamanho-m.png" alt="Coroa Média" style="width: 900px; height: auto;">
+                <img src="${isNobre ? 'imagens/nobre-m.jpg' : 'imagens/tamanho-m.png'}" 
+                     alt="Coroa Média" 
+                     style="width: 900px; height: auto;">
                 <span>M</span>
-                <small>1,20m × 1,00m</small>
+                <small>${dimM}</small>
               </div>
 
               <div class="size-compare__item ${selectedSize === 'G' ? 'active' : ''}" onclick="setSize('G')">
-                <img src="imagens/tamanho-g.png" alt="Coroa Grande" style="width: 900px; height: auto;">
+                <img src="${isNobre ? 'imagens/nobre-g.jpg' : 'imagens/tamanho-g.jpg'}" 
+                     alt="Coroa Grande" 
+                     style="width: 900px; height: auto;">
                 <span>G</span>
-                <small>1,50m × 1,00m</small>
+                <small>${dimG}</small>
               </div>
+
             </div>
           </div>
         </div>
@@ -136,7 +141,6 @@ let selectedSize =
           
           <div class="product-price">
             <span class="product-price__main">${fmtPrice(total)}</span>
-            <span class="product-price__old">${fmtPrice(origTotal)}</span>
           </div>
 
           <div class="product-ribbon-banner">
