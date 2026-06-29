@@ -80,7 +80,7 @@
       </div>
 
       <div class="price-filter">
-        <label for="priceSort">Preço:</label>
+        <label for="priceSort">Ordenar por:</label>
         <select id="priceSort">
           <option value="default">Padrão</option>
           <option value="low-to-high">Menor para Maior</option>
@@ -150,7 +150,6 @@
           <img src="${base}${p.image}" alt="${p.name}" loading="lazy"/>
           <div class="product-card__badges">
             <span class="badge badge--primary">${p.badge}</span>
-            <span class="badge badge--red">-${p.discount}%</span>
           </div>
         </div>
         <div class="product-card__body">
@@ -162,7 +161,6 @@
           <div class="product-card__desc">${p.description}</div>
           <div class="product-card__footer">
             <div>
-              <div class="product-card__price-old">${fmtPrice(p.originalPrice)}</div>
               <div class="product-card__price">${fmtPrice(p.basePrice)}</div>
             </div>
             <div class="product-card__more">Ver <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></div>
